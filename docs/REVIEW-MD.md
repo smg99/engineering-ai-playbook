@@ -22,7 +22,7 @@ Optional: if your lead allows, name target repos for naming and integration fit 
 
 ## Reusable prompt
 
-Copy from **Prefer a review markdown before tickets?** on the SDLC flow page, or use this text:
+Copy from “Prefer a review markdown before tickets?” on the SDLC flow page, or use this text:
 
 ```text
 You are running the Engineering AI Playbook offline as a review workflow.
