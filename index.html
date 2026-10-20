@@ -5,33 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="A practical guide to your first AI-assisted engineering task, with copyable prompts, worked examples and team guides.">
 <title>Engineering AI Playbook</title>
-<style>
-:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0b111d;color:#eaf1ff;--panel:#121d2d;--line:#304158;--muted:#abc0d4;--accent:#98c4ff}*{box-sizing:border-box}body{margin:0;line-height:1.65}header,main,footer{max-width:1120px;margin:auto;padding:24px}header{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}header nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}a{color:#a7ceff;text-underline-offset:4px}a:hover{color:white}h1,h2,h3{line-height:1.2}h1{font-size:clamp(36px,6vw,62px);letter-spacing:-.04em;max-width:820px;margin:18px 0}h1 span{color:var(--accent)}h2{font-size:30px;margin:0 0 16px}h3{font-size:20px}p{color:var(--muted);margin:12px 0}small,.helper{color:var(--muted);font-size:14px}.hero{padding:44px 0 38px}.hero>p{font-size:19px;max-width:750px}.hero-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:24px}.primary,.copy{background:var(--accent);color:#081323;border:1px solid var(--accent);font-weight:700}.primary{padding:12px 18px;border-radius:8px;text-decoration:none}.primary:hover{background:#c3ddff;color:#081323}.section{padding:48px 0;border-top:1px solid var(--line);scroll-margin-top:24px}.intro{max-width:780px}.notice{border-left:3px solid var(--accent);background:#132232;padding:16px 20px;margin:24px 0}.notice p{margin:0}button,input,textarea{font:inherit}button{cursor:pointer;border-radius:8px;border:1px solid #3b506e;background:#1c2b3f;color:#eaf1ff;padding:10px 14px;min-height:44px}button:hover{border-color:var(--accent)}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #d7e8ff;outline-offset:4px}button[aria-pressed=true]{background:var(--accent);color:#081323;border-color:var(--accent)}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}input[type=search]{display:block;width:100%;max-width:500px;padding:12px;background:var(--panel);border:1px solid #506888;border-radius:8px;color:white}input::placeholder{color:#a1b5cb}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:22px;display:flex;flex-direction:column;align-items:flex-start}.card h3{margin:6px 0 12px}.card p{font-size:15px}.card .copy{margin-top:auto}.tag{color:var(--accent);font-size:13px;font-weight:700}.prompt{width:100%;white-space:pre-wrap;overflow-wrap:anywhere;background:#0a111c;border:1px solid var(--line);border-radius:8px;padding:16px;font:14px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;color:#eaf1ff}.card details{width:100%;border:0;padding:0;margin:12px 0 18px;background:none}.card details summary{font-size:14px;padding:8px 0;color:var(--accent)}.card details .prompt{max-height:320px;overflow:auto}.card .next{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.card .next a{font-size:14px}details{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:0 22px;margin:14px 0;scroll-margin-top:20px}summary{cursor:pointer;padding:20px 0;font-size:18px;font-weight:650;line-height:1.5}details[open]>summary{border-bottom:1px solid var(--line);margin-bottom:18px}details>div{padding-bottom:20px;max-width:900px}details p,details li{max-width:82ch}li{margin:8px 0;color:var(--muted)}li strong{color:#eaf1ff}.example-label{color:var(--accent);font-size:13px;font-weight:700}.checklist{display:grid;gap:12px;margin:20px 0}.checklist label{display:flex;gap:12px;align-items:flex-start;color:var(--muted);cursor:pointer}.checklist input{width:20px;height:20px;flex-shrink:0;accent-color:var(--accent);margin-top:4px}.glossary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px}dt{font-weight:700;margin-top:18px}dd{margin:4px 0;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;left:24px;top:-100px;background:var(--panel);padding:10px;z-index:10}.skip:focus{top:8px}footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}code{overflow-wrap:anywhere}noscript{display:block;padding:20px;background:var(--panel)}@media(max-width:700px){header,main,footer{padding:20px}.cards,.glossary{grid-template-columns:1fr}.hero{padding-top:28px}.section{padding:32px 0}details{padding:0 16px}h2{font-size:26px}header nav{gap:14px}.card{padding:18px}.prompt{font-size:13px}}
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><b>Engineering AI Playbook</b><nav aria-label="Main navigation"><a href="#start">Start here</a><a href="#library">Prompts</a><a href="#guides">Team guides</a><a href="#glossary">Glossary</a></nav></header>
+<header><a class="brand" href="#library">Engineering AI Playbook</a><nav aria-label="Main navigation"><a href="#library">Prompts</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
 <main id="main">
-<section class="hero">
-<small>Public guide · Use your team’s approved AI tool</small>
-<h1>Your first AI-assisted task.<br><span>One clear step at a time.</span></h1>
-<p>Learn the workflow with a fictional story, then use focused prompts for your own approved work.</p>
-<div class="hero-actions" role="navigation" aria-label="Choose your path"><a class="primary" href="#start">New to AI-assisted work? Start here</a><a href="#library">Already comfortable? Go straight to prompts</a></div>
-<p class="helper">Free to read. No account or installation needed for this guide. Your AI tool may need setup or a paid plan.</p>
-</section>
+
 <section id="start" class="section" aria-labelledby="start-title">
-<h2 id="start-title">Start here: complete your first story</h2>
-<p><strong>This walkthrough is for you if you are new to AI-assisted development or want a refresher.</strong> Already comfortable planning, implementing and verifying work with AI? <a href="#library">Skip the walkthrough and go to prompts</a>. You can return whenever you need an example.</p>
-<p class="intro">Follow these steps in order. The example is a fictional task app: a task title is required and can contain up to 100 characters. Nothing here connects to a real project or runs AI for you.</p>
-<div class="notice"><p><strong>Before you paste anything:</strong> use only a tool and data your team permits. Keep real client details out of this public site. If you are unsure what you may share, ask your lead first. <a href="#guide-security">Read the confidentiality guide</a>.</p></div>
-<details open id="first-setup"><summary>1. Choose where to work</summary><div>
+<h1 id="start-title">Your first story</h1>
+<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to prompts</a>.</p>
+
+<p class="notice">Use an approved tool and approved context. <a href="#guide-security">Check what you may share</a>.</p>
+<nav id="lesson-nav" aria-label="Story steps"></nav><p id="lesson-status" class="helper" role="status"></p>
+<article class="lesson-step" id="first-setup"><h3>1. Choose where to work</h3><div>
 <p><strong>Ask your lead:</strong> “Which AI tool and model are approved, which repository and branch should I use, and what checks must pass?” Use the project’s existing setup instructions.</p>
 <ul><li><strong>Editor or coding agent with an approved local project:</strong> paste prompts in its chat. Confirm it has the correct project open and can inspect files. Restrict permissions to the task; review proposed edits and commands.</li><li><strong>Browser chat without project access:</strong> paste only approved text for planning or explanation. It cannot inspect your local files, run tests or verify your branch unless an approved integration gives it that access. Ask it what context it needs; do not upload a whole repository.</li></ul>
 <p>You do not need Jira, Bitbucket or an MCP integration to practice this fictional example. For real work, use approved access and provide only the minimum permitted context. Do not give the AI credentials.</p>
 <p><strong>Next:</strong> read the example below. Do not ask the AI to implement until requirements and the plan are clear.</p>
-</div></details>
-<details id="first-plan"><summary>2. Plan the story with a filled prompt</summary><div>
+</div></article>
+<article class="lesson-step" id="first-plan"><h3>2. Plan the story with a filled prompt</h3><div>
 <p><strong>Story:</strong> As a task-app user, I need a valid title before saving a task.</p>
 <p><strong>Acceptance criteria (the agreed conditions for completion):</strong> reject empty or whitespace-only titles; allow 1–100 characters after trimming spaces at the ends; reject 101 or more; show a helpful validation error. These are synthetic requirements, not a recommendation for every product.</p>
 <p>Normally you replace <code>[STORY]</code> and <code>[AC]</code> in a template. Here they are already filled. Paste this in your approved AI chat:</p>
@@ -45,15 +38,15 @@ Use only approved context. If you have repository access, inspect relevant form,
 List unanswered questions, the smallest independently testable changes, how to verify each, and what is outside scope. Flag how Unicode characters are counted as a question for the ticket owner. Do not silently decide it.</pre>
 <button class="copy" data-copy-source="example-plan">Copy filled planning prompt</button>
 <p><strong>Next:</strong> compare the response with step 3 before allowing edits.</p>
-</div></details>
-<details id="first-decide"><summary>3. Check the answer and resolve questions</summary><div>
+</div></article>
+<article class="lesson-step" id="first-decide"><h3>3. Check the answer and resolve questions</h3><div>
 <p class="example-label">Illustrative response shape — not a real repository inspection</p>
 <ul><li><strong>Known:</strong> blank titles fail, end spaces are trimmed, the length limit is 100.</li><li><strong>Unknown:</strong> existing validation and test commands until code is inspected; the product’s definition of a Unicode character.</li><li><strong>Possible first slice:</strong> implement and test rejection of empty and whitespace-only titles using the existing validation pattern.</li><li><strong>Later slices:</strong> enforce the agreed length rule, then verify the form’s error display and saving behavior. Actual slice boundaries depend on the inspected code.</li><li><strong>Outside scope:</strong> redesigning the task form, adding accounts, or changing unrelated fields.</li></ul>
 <p>A <strong>slice</strong> is one small change you can check on its own. If a proposed slice is too large or unclear, ask the AI to split or explain it, then ask your lead to review if you still cannot judge it.</p>
 <p><strong>Unclear requirement?</strong> Ask the ticket owner, record the answer in the approved work item, and update the plan. Do not accept an AI guess as an approved requirement. You can work on a confirmed independent slice only if your team allows it.</p>
 <p><strong>Next:</strong> choose one understood, approved slice. If you cannot explain what will change and how you will check it, stop here and ask for help.</p>
-</div></details>
-<details id="first-execute"><summary>4. Implement one agreed change</summary><div>
+</div></article>
+<article class="lesson-step" id="first-execute"><h3>4. Implement one agreed change</h3><div>
 <p>Use this only in an approved coding environment with project access. The example handles blank titles; it does not claim to finish the whole story.</p>
 <pre class="prompt" id="example-execute">Implement only this agreed slice in the task app: reject empty and whitespace-only titles using the existing validation behavior.
 First confirm the repository, branch and uncommitted changes. Preserve unrelated work. Inspect the relevant validation code and tests before editing.
@@ -62,12 +55,12 @@ Do not change length validation or unrelated features in this slice. Stop if the
 Report changed files, commands actually run and their observed results, remaining acceptance criteria, and one proposed next action. Do not mark the whole story complete.</pre>
 <button class="copy" data-copy-source="example-execute">Copy filled execution prompt</button>
 <p><strong>Next:</strong> inspect what changed. A confident AI answer is not proof that the change works.</p>
-</div></details>
-<details id="first-verify"><summary>5. Verify the result yourself</summary><div>
+</div></article>
+<article class="lesson-step" id="first-verify"><h3>5. Verify the result yourself</h3><div>
 <ol><li><strong>Find the required checks:</strong> read the project README, contribution guide and existing CI configuration. Ask your lead if you cannot identify the commands. Do not assume every project uses the same test runner.</li><li><strong>Review the diff:</strong> inspect the changed lines in your editor’s source-control view. They should match the agreed slice. Ask the AI to explain any line you cannot understand; get human help if it remains unclear.</li><li><strong>Run the checks:</strong> record the command and actual outcome. “Not run” is a valid status; “passed” without execution is not.</li><li><strong>Try the behavior:</strong> for the blank-title slice, try empty input, spaces only, and a normal title. For the full story, also check the agreed 100/101-character boundary, trimming, and visible errors.</li><li><strong>Handle failures:</strong> keep the exact error in an approved private location, ask for investigation before another edit, and change strategy after two unsuccessful attempts. Do not remove a failing test just to get a pass.</li></ol>
 <p><strong>Next:</strong> repeat steps 3–5 for the remaining approved slices, then request review.</p>
-</div></details>
-<details id="first-review"><summary>6. Request review and hand off honestly</summary><div>
+</div></article>
+<article class="lesson-step" id="first-review"><h3>6. Request review and hand off honestly</h3><div>
 <p>Ask your team’s reviewer to assess the change in the approved code platform. AI review is additional help; it does not replace required human review or authorize merging or deployment.</p>
 <div class="checklist" aria-label="Story completion checklist">
 <label><input type="checkbox">Every agreed acceptance criterion is covered; unresolved questions are recorded.</label>
@@ -81,22 +74,23 @@ Report changed files, commands actually run and their observed results, remainin
 Do not edit code. Check each criterion against actual code and test evidence. List actionable issues with file and line references, and identify missing checks. Distinguish observed test results from tests not run. If you cannot access the diff or repository, ask for minimum approved context instead of claiming a review.</pre>
 <button class="copy" data-copy-source="example-review">Copy filled review prompt</button>
 <p><strong>Next:</strong> follow your team’s review and delivery process. If work must pause, use <a href="#guide-handoff">the handoff guide below</a>.</p>
-</div></details>
+</div></article>
+<div class="lesson-controls"><button id="previous-step">Previous</button><button id="next-step" class="primary">Next step</button></div>
 </section>
 <section id="library" class="section" aria-labelledby="library-title">
-<h2 id="library-title">Prompts for your current task</h2>
-<p><strong>Use this section directly if you already know the workflow.</strong> New to AI-assisted work or unsure what to do next? <a href="#start">Follow the first-story walkthrough</a>, then return here for your own task.</p>
-<p class="intro">Choose a workflow. Replace bracketed placeholders before pasting into your approved AI tool. This site never submits prompts, tickets or code to an AI provider.</p>
+<h1 id="library-title">What are you working on?</h1>
+<p>Choose a task. Add only the context it needs. <a href="#start">New here? Try your first story.</a></p>
+
 <label for="search">Search prompts</label><input type="search" id="search" placeholder="Try: investigate, review, resume…" aria-describedby="search-help">
-<p id="search-help" class="helper">Search applies to the selected workflow. Choosing another workflow clears the search.</p>
+<p id="search-help" class="sr-only">Search the selected workflow. Switching workflows clears the search.</p>
 <div class="toolbar" id="filters" role="group" aria-label="Workflow filters"></div>
 <p id="result-count" class="helper" role="status" aria-live="polite"></p>
-<div id="cards" class="cards"></div>
-<noscript>The prompt library needs JavaScript for search and copying. The worked example, team guides and glossary remain readable below and above.</noscript>
+<div class="prompt-workspace"><nav id="prompt-list" aria-label="Choose a prompt"></nav><article id="prompt-detail" aria-live="polite"></article></div>
+<noscript>Enable JavaScript to browse and copy prompts. The worked example and guides remain readable on this page.</noscript>
 </section>
 <section id="guides" class="section" aria-labelledby="guides-title">
-<h2 id="guides-title">Team guides, right here</h2>
-<p>Open a guide to read it without leaving this page. New here? Read “Choose and prepare your AI tool” and “Protect client information” first.</p>
+<h1 id="guides-title">A little guidance, when you need it</h1>
+<p>Tools, workflow and boundaries. Open only what you need. <a href="#glossary">Look up a term</a>.</p>
 <!-- team-guides:start -->
 <details id="guide-tools"><summary>Choose and prepare your AI tool</summary><div>
 <p>Use the tool and model your team approves. Ask your lead before sending any real work: “Which tool may I use, what information may I share, and which project setup instructions should I follow?” This playbook does not approve a provider for your client.</p>
@@ -172,8 +166,7 @@ Next action: [one specific action]</pre>
 </div></details>
 <!-- team-guides:end -->
 </section>
-<section id="glossary" class="section" aria-labelledby="glossary-title">
-<h2 id="glossary-title">Words you will see</h2>
+<details id="glossary"><summary>Glossary</summary><div>
 <dl class="glossary">
 <div><dt>Story / acceptance criteria (AC)</dt><dd>A small user need and the agreed conditions that prove it is met. Ask the ticket owner when those conditions are unclear.</dd></div>
 <div><dt>Epic</dt><dd>A larger goal delivered through several stories. Most beginners can start with their assigned story.</dd></div>
@@ -184,139 +177,10 @@ Next action: [one specific action]</pre>
 <div><dt>Agent / MCP</dt><dd>An agent can use permitted tools to act on work. Model Context Protocol (MCP) connects tools or data; it is optional and does not automatically grant approved access.</dd></div>
 <div><dt>Tokens / context / quota</dt><dd>Tokens are pieces of text processed by a model. Context is the information it receives. Quota is your provider’s usage allowance; its measurement varies.</dd></div>
 </dl>
-</section>
+</div></details>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 </main>
-<footer>Public engineering guidance · Fictional examples only · Keep client work in approved private locations.</footer>
-<script>
-const items=[
-  [
-    "Epic",
-    "Understand an epic",
-    "Analyze [EPIC_SUMMARY] without writing code. Give goals, scope/exclusions, dependencies, unresolved requirements, risks and independently deliverable stories. Separate facts from assumptions."
-  ],
-  [
-    "Epic",
-    "Break down an epic",
-    "From [APPROVED_EPIC_SCOPE], propose independently testable user stories with outcome, candidate acceptance criteria, dependencies and risk. Mark criteria as proposals, not approved requirements. Do not implement."
-  ],
-  [
-    "Story",
-    "Plan a story",
-    "Read the assigned story [STORY] and approved acceptance criteria [AC]. Inspect only relevant files. DO NOT code yet. List ambiguities, existing patterns, smallest independently testable execution slices, checks and out-of-scope items."
-  ],
-  [
-    "Story",
-    "Execute one slice",
-    "Implement only [ONE_SLICE]. First check branch, working tree and relevant existing code. Follow project conventions. Add appropriate tests, run relevant checks, review diff and report exact evidence, blockers and next action. Do not start the next slice."
-  ],
-  [
-    "Bug",
-    "Investigate a bug",
-    "Investigate [EXPECTED], [ACTUAL], [STEPS] without changing code. Identify reproduction evidence, likely root causes ranked by confidence, minimal failing test, affected scope and proposed fix. Distinguish hypotheses from proof."
-  ],
-  [
-    "Bug",
-    "Fix the root cause",
-    "Fix only the verified cause [CAUSE_AND_EVIDENCE] using the smallest safe code change. Add regression test where feasible, execute checks, inspect the diff and report observed results. Avoid unrelated refactoring."
-  ],
-  [
-    "Review",
-    "Review a change",
-    "Review the current diff against [APPROVED_SCOPE] and [AC]. Flag actionable correctness, security, regression and test gaps with file/line evidence. Separate blockers from nice-to-haves. Do not claim tests passed without checking."
-  ],
-  [
-    "QA",
-    "Design test cases",
-    "Derive prioritized happy-path, boundary, negative and regression scenarios from [STORY] and [AC]. For each case show steps and expected outcomes. Flag uncertain requirements. Never request production customer data."
-  ],
-  [
-    "Handoff",
-    "Prepare provider switch",
-    "Inspect current git state; summarize branch, verified SHA, completed slices, uncommitted files, actual test results, blockers, constraints and ONE next action in under 350 words. Exclude secrets and chat history. Do not edit code."
-  ],
-  [
-    "Handoff",
-    "Resume from state",
-    "Read [PLAN], [STATE] and [RELEVANT_FILES]. Check git branch, working tree, commit and claimed tests before editing. Identify exactly one unfinished slice; perform it using existing patterns. Flag any discrepancy rather than repeating completed work."
-  ]
-];
-const metadata = [
-['A larger goal needs clarification before story planning.','Approved epic summary; known constraints and what is excluded.','Confirm open questions with the owner, then break down the epic.','Break down an epic'],
-['The epic scope is agreed and needs smaller deliverables.','Approved scope; dependencies and boundaries.','Have the owner confirm the proposed stories and acceptance criteria.','Plan a story'],
-['You have an assigned story and need a plan before edits.','[STORY]: the user need. [AC]: approved acceptance criteria. Relevant approved code access or file context.','Resolve questions with the ticket owner, then choose one understood slice.','Execute one slice'],
-['One change from the plan is understood and approved.','[ONE_SLICE]: the exact change, its limits and checks. Use a coding environment with repository access.','Inspect the diff and actual check results; repeat for remaining slices before review.','Review a change'],
-['A reported behavior needs a reproducible explanation.','[EXPECTED]: what should happen. [ACTUAL]: what happened. [STEPS]: how to reproduce, plus permitted evidence.','Confirm the cause from reproduction and code evidence before asking for a fix.','Fix the root cause'],
-['Investigation has established the cause of a bug.','[CAUSE_AND_EVIDENCE]: confirmed cause, reproduction and affected code.','Verify the original reproduction and regression checks, then request review.','Review a change'],
-['A change is ready for an additional review.','[APPROVED_SCOPE] and [AC], plus access to the current diff and relevant tests.','Address valid findings and request the required human review.',''],
-['You need test scenarios for a story.','[STORY] and [AC], including the approved edge-case behavior.','Resolve unclear expected results, run approved cases and record observed outcomes.',''],
-['Work must pause or move to another approved tool.','Current repository access, plan, verified results and unfinished work.','Store the summary privately; start the next approved session with the resume prompt.','Resume from state'],
-['You need to continue previously paused work.','[PLAN]: agreed work. [STATE]: factual handoff. [RELEVANT_FILES]: only the files needed for the next slice.','Recheck the state before editing. Resolve discrepancies and work on one slice.','Execute one slice']
-];
-const categories=['All','Epic','Story','Bug','Review','QA','Handoff'];
-const search=document.getElementById('search');
-const cards=document.getElementById('cards');
-const filters=document.getElementById('filters');
-let selected='All';
-const escapeHTML=text=>text.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const accessBoundary='Use only approved context. If required files, tools or evidence are unavailable, say what is missing and ask for minimum approved context. Do not invent code inspection or test results.';
-const promptText=index=>items[index][2]+'\n\n'+accessBoundary;
-function renderCards(){
- const query=search.value.trim().toLowerCase();
- const matches=items.map((item,index)=>({item,index})).filter(({item,index})=>(selected==='All'||item[0]===selected)&&[...item,...metadata[index]].join(' ').toLowerCase().includes(query));
- document.getElementById('result-count').textContent=matches.length+' prompt'+(matches.length===1?'':'s')+' shown';
- cards.innerHTML=matches.map(({item,index})=>{
-  const [when,provide,next,nextTitle]=metadata[index];
-  const nextIndex=items.findIndex(entry=>entry[1]===nextTitle);
-  return `<article class="card" id="prompt-${index}"><span class="tag">${escapeHTML(item[0])}</span><h3>${escapeHTML(item[1])}</h3><p><strong>Use when:</strong> ${escapeHTML(when)}</p><p><strong>Provide:</strong> ${escapeHTML(provide)}</p><details><summary>Read prompt</summary><pre class="prompt">${escapeHTML(promptText(index))}</pre></details><button class="copy" data-copy-index="${index}">Copy ${escapeHTML(item[1].toLowerCase())} prompt</button><p class="next"><strong>Then:</strong> ${escapeHTML(next)}</p>${nextIndex>=0?`<button data-next-index="${nextIndex}">Next: ${escapeHTML(nextTitle)}</button>`:''}</article>`;
- }).join('')||'<div><p>No matching prompts. Clear your search or choose another workflow.</p><button id="clear-search">Clear search</button></div>';
-}
-function updateFilters(){
- filters.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===selected)));
-}
-filters.innerHTML=categories.map(category=>`<button data-filter="${category}" aria-pressed="${category==='All'}">${category}</button>`).join('');
-filters.addEventListener('click',event=>{
- const button=event.target.closest('[data-filter]');
- if(!button)return;
- selected=button.dataset.filter;search.value='';updateFilters();renderCards();
-});
-search.addEventListener('input',renderCards);
-cards.addEventListener('click',event=>{
- const next=event.target.closest('[data-next-index]');
- if(next){
-  const index=Number(next.dataset.nextIndex);selected=items[index][0];search.value='';updateFilters();renderCards();
-  const heading=document.querySelector(`#prompt-${index} h3`);heading.tabIndex=-1;heading.focus();heading.scrollIntoView({block:'center'});
- }
- if(event.target.id==='clear-search'){search.value='';renderCards();search.focus();}
-});
-document.addEventListener('click',async event=>{
- const link=event.target.closest('a[href^="#"]');
- if(link){
-  const target=document.getElementById(link.getAttribute('href').slice(1));
-  if(target?.tagName==='DETAILS')target.open=true;
- }
- const button=event.target.closest('[data-copy-source],[data-copy-index]');
- if(!button)return;
- const text=button.hasAttribute('data-copy-source')?document.getElementById(button.dataset.copySource).textContent:promptText(Number(button.dataset.copyIndex));
- const original=button.textContent;
- const status=document.getElementById('copy-status');
- try{
-  await navigator.clipboard.writeText(text);button.textContent='Copied';status.textContent='Prompt copied. Replace any remaining placeholders before using your approved AI tool.';
-  setTimeout(()=>{button.textContent=original;},1800);
- }catch{
-  const fallback=document.createElement('div');
-  const label=document.createElement('label');label.textContent='Clipboard unavailable. Select and copy the prompt below:';
-  const area=document.createElement('textarea');area.value=text;area.readOnly=true;area.rows=10;area.style.width='100%';area.id='manual-copy-'+Date.now();label.htmlFor=area.id;
-  fallback.append(label,area);button.after(fallback);area.focus();area.select();status.textContent='Automatic copy failed. A selectable prompt is shown after the copy button.';
- }
-});
-function revealHash(){
- const id=decodeURIComponent(location.hash.slice(1));
- const target=document.getElementById(id);
- if(target?.tagName==='DETAILS')target.open=true;
-}
-window.addEventListener('hashchange',revealHash);
-renderCards();revealHash();
-</script>
+<footer>Generic guidance only. Keep client work private. This site never sends context to an AI.</footer>
+<script src="assets/app.js" defer></script>
 </body>
 </html>

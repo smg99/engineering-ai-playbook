@@ -28,7 +28,7 @@ This repository and its GitHub Pages site are deliberately **public**. Publish o
 
 ## Maintenance
 
-No dependency installation, paid API, framework, telemetry or database. The site is a self-contained static HTML file with editable prompt examples. Add role-based prompts with synthetic examples and verify their usefulness before merging. Each prompt has usage, inputs and next-action metadata. Keep that metadata aligned when changing prompts.
+No dependency installation, paid API, framework, telemetry or database. The site uses static HTML, CSS and JavaScript with no runtime dependencies. Add role-based prompts with synthetic examples and verify their usefulness before merging. Prompt definitions and usage metadata live in `assets/app.js`; styles live in `assets/styles.css`. Each prompt has usage, inputs and next-action metadata. Keep that metadata aligned when changing prompts.
 
 Edit the four guide sources in `docs/`, then run `python3 scripts/sync-guides.py` to embed their readable content into `index.html`. Commit both source and generated HTML. Run `python3 scripts/sync-guides.py --check` to detect drift. Python is needed only for maintaining guides, not for reading or serving the site.
 
@@ -36,6 +36,10 @@ Verify the first-story walkthrough, category/search combinations, next-prompt na
 
 ## Hosting
 
-GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this self-contained static app without Jekyll processing. Changes pushed to `main` are published automatically. Team guides are embedded in the page as accessible expandable sections. Markdown sources remain available in this repository for contributors.
+GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this static app without Jekyll processing. Changes pushed to `main` are published automatically. Prompts, First story and Guides are focused views within one app; navigation never opens a separate documentation window. The first-story view shows one step at a time. Team guides are embedded as expandable sections. Markdown sources remain available in this repository for contributors.
 
 GitHub Pages is the preferred no-cost option for this public static guide: no separate hosting account, framework or build configuration is needed. Vercel can host static sites and connect private repositories, but adds another service; its free Hobby plan is limited to personal, non-commercial use. Reassess hosting if server-side features or authenticated access become requirements.
+
+## Design
+
+Light neutral surfaces and a restrained violet accent are inspired by the supplied DesignSystems.one token-generator preview. System fonts avoid external font downloads. Prompt size indicators are rough character-based token estimates, not provider billing counts. Only prompt text is copied, without the surrounding guidance. Hosting stays on GitHub Pages; there is no build pipeline or hosting migration.
