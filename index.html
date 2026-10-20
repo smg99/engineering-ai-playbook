@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="A practical guide to your first AI-assisted engineering task, with copyable prompts, worked examples and team guides.">
 <title>Engineering AI Playbook</title>
-<link rel="stylesheet" href="assets/styles.css?v=sdlc4">
+<link rel="stylesheet" href="assets/styles.css?v=sdlc5">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -84,10 +84,17 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <button data-entry="2"><strong>I have an epic description</strong><span>Design the approach, then draft stories.</span></button>
 <button data-entry="4"><strong>I have an epic and stories</strong><span>Review readiness, then develop one story.</span></button>
 </div>
+<div id="review-md-home" class="review-md-home">
+<h2 id="review-md-home-title">Vague requirement? Start with a review markdown</h2>
+<p>Before creating tickets, generate a private markdown (clarify → epic → design → stories), then ask a <strong>different</strong> approved AI to critique it. Humans adapt the feedback, then create tickets only for the approved set. <a href="#guide-review-md">Full guide</a></p>
+<div class="prompt-bar"><button class="copy" data-copy-source="review-md-text">Copy generate prompt</button><span class="token-count" id="review-md-token" title="Template only; excludes the context you add. Rough character-based estimate, not a billing count."></span></div>
+<pre id="review-md-text" class="prompt"></pre>
+<div class="prompt-bar"><button class="copy" data-copy-source="review-md-critique-text">Copy second-AI critique prompt</button></div>
+<pre id="review-md-critique-text" class="prompt"></pre>
+</div>
 <div id="stage-picker"><label for="stage-select">Or choose your current stage</label><select id="stage-select"><option value="">Choose a stage…</option></select></div>
 <div id="stage-workspace" class="stage-workspace" hidden><nav id="stage-list" aria-label="SDLC stages"></nav><article id="stage-detail"></article></div>
-<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. Prefer a <a href="#review-md-tools">review markdown before tickets</a>. <a href="#start">New to AI-assisted work?</a></p>
-<details id="review-md-tools"><summary>Prefer a review markdown before tickets?</summary><div><p class="helper">Paste into an approved AI tool with your requirement. Store the result privately. Read the <a href="#guide-review-md">full guide</a>.</p><pre id="review-md-text" class="prompt"></pre><button class="copy" data-copy-source="review-md-text">Copy review-markdown prompt</button></div></details>
+<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. <a href="#start">New to AI-assisted work?</a></p>
 <details id="handoff-tools"><summary>Need to pause or resume work?</summary><div><label for="handoff-select">Handoff action</label><select id="handoff-select"><option value="0">Pause work</option><option value="1">Resume work</option></select><pre id="handoff-text" class="prompt"></pre><button class="copy" data-copy-source="handoff-text">Copy handoff prompt</button></div></details>
 <noscript>Enable JavaScript to choose stages and copy prompts. The worked example and guides remain readable on this page.</noscript>
 </section>
@@ -116,23 +123,25 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <details id="guide-review-md"><summary>Generate a review markdown before tickets</summary><div>
 <p>Prefer a private review markdown over creating tickets immediately. Humans review the draft epic and stories, answer blocking questions, then create tickets only for the approved set.</p>
 <p>This keeps client context out of the public playbook site. Store the markdown only in an approved private location.</p>
+<p>On the SDLC home view, the generate prompt and a second-pass review prompt are visible with copy buttons. Use those first; this guide explains the full loop.</p>
 <h3>When to use it</h3>
 <ul>
 <li>You received vague or meeting-note requirements and need an epic plus stories to review.</li>
-<li>You want questions and assumptions visible before Jira (or any ticket system).</li>
+<li>You want questions and assumptions visible before any ticket system entry.</li>
 <li>You are practicing the SDLC stages without writing tickets yet.</li>
 </ul>
 <h3>How it works</h3>
 <ol>
-<li>Open this playbook’s SDLC stage prompts (Clarify → Epic → Design → Stories) as the source of truth.</li>
-<li>Paste the reusable prompt below into an approved AI tool.</li>
-<li>Replace the requirement block with the real approved context.</li>
-<li>Save the model’s markdown privately and review it with your lead or owner.</li>
-<li>Only after review, use Review &amp; create stories and enter tickets through approved access.</li>
+<li>On SDLC flow home, copy the generate prompt into an approved AI tool.</li>
+<li>Paste your approved requirement and optional target repos.</li>
+<li>Save the model’s markdown privately.</li>
+<li>Copy the critique prompt into a different approved AI tool (or a fresh session) and paste that markdown for a second-pass review.</li>
+<li>Adapt useful feedback; answer P0 questions with the owner.</li>
+<li>Run Review &amp; create stories in readiness-only mode (validate drafts; still do not invent ticket IDs).</li>
+<li>Only after human approval, create tickets through approved access.</li>
 </ol>
-<p>Optional: if your lead allows, name target repos for naming and integration fit only. Do not ask the AI to modify code unless that work is explicitly in scope.</p>
-<h3>Reusable prompt</h3>
-<p>Copy from “Prefer a review markdown before tickets?” on the SDLC flow page, or use this text:</p>
+<h3>Reusable generate prompt</h3>
+<p>Copy from the SDLC home panel, or use:</p>
 <pre class="prompt">You are running the Engineering AI Playbook offline as a review workflow.
 
 Source of truth for stage prompts:
@@ -148,6 +157,8 @@ Process — run these stages in order using the EXACT playbook prompt text for e
 2) Define the epic
 3) Design the approach
 4) Draft stories
+5) Review &amp; create stories in READINESS-ONLY mode: validate drafts for clarity,
+   ownership, testability and gaps. Still do NOT create tickets or invent IDs.
 
 Markdown must include:
 - The client requirement enclosed verbatim in a fenced code block
@@ -155,9 +166,17 @@ Markdown must include:
 - Clear labels: Known facts / Assumptions / Unknowns / Proposals / DRAFT
 - Blocking questions for the owner (P0/P1/P2)
 - One draft epic
+- For stateful domains (queues, workflows, approvals): explicit entity states
+  and allowed transitions before story AC that depend on them
 - User stories with: summary, need/value, scope/exclusions, dependencies,
   numbered Given/When/Then AC, negative/boundary cases, QA mapped to AC,
-  test requirements, definition of done, and the playbook coverage policy
+  test requirements, definition of done
+- One owning story per observable behavior; do not test later-story behavior
+  inside earlier foundation stories
+- Full story detail only for the proposed MVP set; label the rest as backlog themes
+  (title + intent only) until expanded
+- Cite the team’s agreed coverage gate for new/changed code; if unknown, ask.
+  Do not invent a gate. Prefer 100% only when that is the team’s stated gate.
 - If timeline conflicts with scope: propose an MVP cut vs stretch
 - A short &quot;Playbook feedback&quot; section: what worked / what to improve
 
@@ -170,17 +189,36 @@ Rules from the playbook:
 
 Optional context (only if provided):
 - Target repos/paths: …
-- Team conventions: …
+- Team conventions / coverage gate: …
 
 Client requirement:
 &quot;&quot;&quot;
 [PASTE REQUIREMENT HERE]
 &quot;&quot;&quot;</pre>
-<h3>After the markdown exists</h3>
+<h3>Reusable critique prompt (second AI)</h3>
+<p>After the markdown exists, paste it into a different approved model or a fresh session:</p>
+<pre class="prompt">Review this Engineering AI Playbook review-markdown as a critical tech lead.
+Do NOT rewrite the whole document unless asked. Do NOT create tickets.
+
+Return:
+1) Verdict: discovery-ready / needs revision / not ready
+2) High/medium findings table: issue, why it matters, what to change
+3) Missing state/transition or operating-model gaps
+4) Story-ownership leaks (early stories testing later capabilities)
+5) Vague AC that lack pass/fail thresholds
+6) Whether stretch items are wrongly treated as full stories
+7) Whether coverage gate is explicit or still assumed
+8) The smallest revision checklist before readiness-only re-validation
+
+Document to review:
+&quot;&quot;&quot;
+[PASTE REVIEW MARKDOWN HERE]
+&quot;&quot;&quot;</pre>
+<h3>After both passes</h3>
 <ul>
 <li>Answer P0 questions or explicitly accept assumptions.</li>
-<li>Cut stretch stories if the timeline cannot hold them.</li>
-<li>Create tickets only for the approved epic and stories.</li>
+<li>Cut stretch themes if the timeline cannot hold them.</li>
+<li>Create tickets only for the approved epic and MVP stories.</li>
 <li>Keep using Develop one story for implementation; the markdown is planning evidence, not completion proof.</li>
 </ul>
 </div></details>
@@ -196,7 +234,7 @@ Client requirement:
 </div></details>
 <details id="guide-workflow"><summary>From vague requirement to verified release</summary><div>
 <p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.</p>
-<p>For a new vague requirement, prefer generating a private review markdown (clarify → epic → design → stories) and human-reviewing it before creating tickets. Use “Prefer a review markdown before tickets?” on the SDLC flow page, or the Generate a review markdown before tickets guide.</p>
+<p>For a new vague requirement, use the visible review-markdown panel on the SDLC home view: generate a private markdown (clarify → epic → design → stories → readiness-only check), then ask a different approved AI to critique it. Adapt useful feedback with your owner before creating tickets. Details live in the Generate a review markdown before tickets guide.</p>
 <h3>Follow the nine stages</h3>
 <ol>
 <li>Clarify requirements: separate facts from assumptions, identify users and outcomes, surface relevant non-functional needs, and resolve blocking questions with the owner.</li>
@@ -261,7 +299,7 @@ Next action: [one specific action]</pre>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 </main>
 <footer>Generic guidance only. Keep client work private. This site never sends context to an AI.</footer>
-<script src="assets/flow-data.js?v=sdlc4" defer></script>
-<script src="assets/app.js?v=sdlc4" defer></script>
+<script src="assets/flow-data.js?v=sdlc5" defer></script>
+<script src="assets/app.js?v=sdlc5" defer></script>
 </body>
 </html>

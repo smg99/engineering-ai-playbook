@@ -21,6 +21,8 @@ function renderStage(index){
  if(currentStage!==index)currentPrompt=0;
  currentStage=index;const stage=flowStages[index];
  document.getElementById('entry-choices').hidden=true;
+ const reviewHome=document.getElementById('review-md-home');
+ if(reviewHome)reviewHome.hidden=true;
  document.getElementById('stage-workspace').hidden=false;
  document.getElementById('change-entry').hidden=false;
  document.getElementById('library').classList.add('has-stage');
@@ -36,6 +38,8 @@ function renderStage(index){
 function showEntry(){
  currentStage=null;currentPrompt=0;
  document.getElementById('entry-choices').hidden=false;
+ const reviewHome=document.getElementById('review-md-home');
+ if(reviewHome)reviewHome.hidden=false;
  document.getElementById('stage-workspace').hidden=true;
  document.getElementById('change-entry').hidden=true;
  document.getElementById('library').classList.remove('has-stage');
@@ -53,7 +57,13 @@ const handoffSelect=document.getElementById('handoff-select');
 function renderHandoff(){document.getElementById('handoff-text').textContent=handoffPrompts[Number(handoffSelect.value)].text+'\n\n'+boundary;}
 handoffSelect.addEventListener('change',renderHandoff);renderHandoff();
 const reviewMdText=document.getElementById('review-md-text');
-if(reviewMdText&&typeof reviewMdPrompt==='string')reviewMdText.textContent=reviewMdPrompt;
+if(reviewMdText&&typeof reviewMdPrompt==='string'){
+ reviewMdText.textContent=reviewMdPrompt;
+ const token=document.getElementById('review-md-token');
+ if(token)token.textContent=`Template ≈${Math.ceil(reviewMdPrompt.length/4)} tokens`;
+}
+const reviewMdCritique=document.getElementById('review-md-critique-text');
+if(reviewMdCritique&&typeof reviewMdCritiquePrompt==='string')reviewMdCritique.textContent=reviewMdCritiquePrompt;
 const steps=[...document.querySelectorAll('.lesson-step')];
 const lessonNav=document.getElementById('lesson-nav');
 lessonNav.innerHTML=steps.map((item,index)=>`<button data-step="${index}" aria-label="Step ${index+1}: ${escapeHTML(item.querySelector('h3').textContent.replace(/^\d+\. /,''))}">${index+1}</button>`).join('');

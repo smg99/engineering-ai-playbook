@@ -2,7 +2,7 @@
 
 Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.
 
-For a new vague requirement, prefer generating a private review markdown (clarify → epic → design → stories) and human-reviewing it before creating tickets. Use “Prefer a review markdown before tickets?” on the SDLC flow page, or the Generate a review markdown before tickets guide.
+For a new vague requirement, use the visible review-markdown panel on the SDLC home view: generate a private markdown (clarify → epic → design → stories → readiness-only check), then ask a different approved AI to critique it. Adapt useful feedback with your owner before creating tickets. Details live in the Generate a review markdown before tickets guide.
 
 ## Follow the nine stages
 

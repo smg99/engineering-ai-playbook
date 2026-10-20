@@ -7,7 +7,7 @@ A **public, tool-agnostic SDLC flow** and reusable execution guide for our engin
 1. Visit **[Engineering AI Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required to read the guide.
 2. New to the workflow? Choose **First story** for a fictional worked example, filled prompts and a verification checklist. Finish there and jump straight into **Develop one story**.
 3. In **SDLC flow**, choose vague requirements, an existing epic, or an epic with stories. Or select any of the nine stages directly. Read inputs, expected outputs and exit checks; copy the current stage’s prompt into an approved tool and replace its placeholders.
-4. For a new vague requirement, prefer **Prefer a review markdown before tickets?** (or the review-markdown guide): produce one private markdown for human review, then create tickets only for the approved set.
+4. For a new vague requirement, use the **visible review-markdown panel** on SDLC home: copy the generate prompt, then the second-AI critique prompt. Review privately, adapt feedback, then create tickets only for the approved set.
 5. Read Team guides and the glossary on the same page. No separate documentation window is needed.
 6. Verify results with actual code, tests and diffs, then follow your team’s review process. The site does not run AI, inspect code or update tickets.
 
@@ -32,7 +32,7 @@ This repository and its GitHub Pages site are deliberately **public**. Publish o
 
 No dependency installation, paid API, framework, telemetry or database. The site uses static HTML, CSS and JavaScript with no runtime dependencies. Add role-based prompts with synthetic examples and verify their usefulness before merging. Stage content and prompts live in `assets/flow-data.js`; interactions live in `assets/app.js`; styles live in `assets/styles.css`. Each stage has inputs, outputs, exit checks and prompts. Keep these aligned when changing the flow.
 
-Edit the guide sources in `docs/`, then run `python3 scripts/sync-guides.py` to embed their readable content into `index.html`. Keep the review-markdown prompt in `docs/REVIEW-MD.md` aligned with `reviewMdPrompt` in `assets/flow-data.js`. Commit both source and generated HTML. Run `python3 scripts/sync-guides.py --check` to detect drift. Python is needed only for maintaining guides, not for reading or serving the site.
+Edit the guide sources in `docs/`, then run `python3 scripts/sync-guides.py` to embed their readable content into `index.html`. Keep `docs/REVIEW-MD.md` aligned with both `reviewMdPrompt` and `reviewMdCritiquePrompt` in `assets/flow-data.js`. Commit both source and generated HTML. Run `python3 scripts/sync-guides.py --check` to detect drift. Python is needed only for maintaining guides, not for reading or serving the site.
 
 Verify all three starting points, nine-stage navigation and direct links, one-story actions, QA return/next-story paths, the first-story walkthrough, exact copying, inline guides, keyboard focus and narrow-screen layout before publishing. Personal checklist selections reset on reload; nothing is sent to a backend.
 

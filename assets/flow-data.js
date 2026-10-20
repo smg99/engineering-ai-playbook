@@ -7,8 +7,8 @@ const flowStages=[
  {title:'Draft the design note',text:'From [EPIC], draft a lightweight design note (not a full specification). Include: proposed approach in plain language; affected systems/modules; data and API contracts or changes; security/privacy considerations; performance, accessibility and reliability implications; migration or rollout risks; alternatives considered briefly; open questions for the owner or tech lead. Prefer existing patterns over invention. Mark proposals clearly. Do not write production code or create tickets.'},
  {title:'Tech-lead design review',text:'Review this design note against [EPIC]. Flag missing contracts, unsafe assumptions, NFR gaps, over-scope, and missing rollback thinking. Ask for the smallest clarifications needed. Do not invent repository evidence. Recommend approve, revise or stop—without creating tickets or writing code.'}
  ]},
- {id:'stories',title:'Draft stories',when:'You already have an epic description or an agreed epic and design direction.',input:'[EPIC], [DESIGN_NOTE] if available, approved scope and team conventions. Flag gaps in an unapproved epic first.',output:'Small ticket-ready story drafts, each with QA-testable AC and a coverage requirement.',gate:['Each story has independently testable acceptance criteria and clear dependencies.','The epic’s agreed scope is covered; story boundaries, test requirements and exclusions are explicit.'],prompts:[{title:'Turn the epic into stories',text:'Review [EPIC] and any [DESIGN_NOTE] for missing scope or blocking decisions before splitting. Draft small, independently deliverable user stories for the team’s ticket system (for example Jira, Linear or GitHub Issues). For EACH story include: summary; user need and value; scope and exclusions; dependencies; numbered acceptance criteria (AC) in Given/When/Then form; relevant happy, negative, error and boundary behavior; QA test scenarios mapped to AC; implementation test requirements; and a definition of done covering review, tests, QA and documentation. Keep stories sized to one reviewable change when possible. Mark uncertain criteria as proposals for owner confirmation. '+coveragePolicy+' Do not write code or create tickets.'}]},
- {id:'ready',title:'Review & create stories',when:'Story drafts exist and need approval and entry into the ticket system.',input:'[EPIC], [STORY_DRAFTS], owner decisions and the confirmed project/parent epic in the ticket system.',output:'Approved stories with ticket IDs, dependencies and agreed test gates.',gate:['The owner approved each story’s AC; every story includes the coverage policy.','Stories are in the correct project and the next ready story is identified.'],prompts:[{title:'Validate stories for tickets',text:'Review [STORY_DRAFTS] against [EPIC]. Flag unclear or untestable AC, missing negative/boundary scenarios, dependencies, overlaps and uncovered scope. Verify every story includes its QA scenarios, definition of done and this policy: '+coveragePolicy+' Return corrections and ticket-ready drafts for owner approval. Confirm the correct parent epic and check for existing tickets to avoid duplicates. If the epic is not in the ticket system yet, prepare its approved draft for creation before linking stories. Do not invent approval or ticket IDs. Only create tickets after explicit authorization, a confirmed project and approved integration access; otherwise provide drafts for manual entry. Preserve real work in approved private systems.'}]},
+ {id:'stories',title:'Draft stories',when:'You already have an epic description or an agreed epic and design direction.',input:'[EPIC], [DESIGN_NOTE] if available, approved scope and team conventions. Flag gaps in an unapproved epic first.',output:'Small ticket-ready story drafts, each with QA-testable AC and a coverage requirement.',gate:['Each story has independently testable acceptance criteria and clear dependencies.','The epic’s agreed scope is covered; story boundaries, test requirements and exclusions are explicit.'],prompts:[{title:'Turn the epic into stories',text:'Review [EPIC] and any [DESIGN_NOTE] for missing scope or blocking decisions before splitting. If the domain is stateful (for example queues or approvals), state entity states and allowed transitions before writing AC that depend on them. Draft small, independently deliverable user stories for the team’s ticket system (for example Jira, Linear or GitHub Issues). Give each observable behavior exactly one owning story; do not verify later-story behavior inside earlier foundation stories. Write full story detail for the MVP set; label the rest as backlog themes until expanded. For EACH full story include: summary; user need and value; scope and exclusions; dependencies; numbered acceptance criteria (AC) in Given/When/Then form with definite pass/fail outcomes; relevant happy, negative, error and boundary behavior; QA test scenarios mapped to AC; implementation test requirements; and a definition of done covering review, tests, QA and documentation. Keep stories sized to one reviewable change when possible. Mark uncertain criteria as proposals for owner confirmation. Cite the team’s agreed coverage gate; if unknown, ask. '+coveragePolicy+' Do not write code or create tickets.'}]},
+ {id:'ready',title:'Review & create stories',when:'Story drafts exist and need approval and entry into the ticket system.',input:'[EPIC], [STORY_DRAFTS], owner decisions and the confirmed project/parent epic in the ticket system.',output:'Approved stories with ticket IDs, dependencies and agreed test gates—or a readiness report when ticket creation is not requested.',gate:['The owner approved each story’s AC; every story includes the coverage policy—or readiness blockers are explicit.','Stories are in the correct project and the next ready story is identified—or drafts remain private pending approval.'],prompts:[{title:'Validate stories for tickets',text:'Review [STORY_DRAFTS] against [EPIC]. Flag unclear or untestable AC, missing negative/boundary scenarios, missing state/transition rules, ownership leaks across stories, dependencies, overlaps and uncovered scope. Verify every full story includes its QA scenarios, definition of done and the team’s agreed coverage gate: '+coveragePolicy+' If the user asked for readiness only, return a readiness report and corrected drafts without creating tickets. Otherwise return corrections and ticket-ready drafts for owner approval. Confirm the correct parent epic and check for existing tickets to avoid duplicates. If the epic is not in the ticket system yet, prepare its approved draft for creation before linking stories. Do not invent approval or ticket IDs. Only create tickets after explicit authorization, a confirmed project and approved integration access; otherwise provide drafts for manual entry. Preserve real work in approved private systems.'}]},
  {id:'develop',title:'Develop one story',when:'You already have an epic and stories, or a ready story assigned to you.',input:'[STORY_ID], its approved AC, dependencies and approved repository access.',output:'One story implemented through small verified changes. Other stories stay queued.',gate:['Every AC for this story is implemented; remaining scope and failures are explicit.','Changes are scoped to this story and ready for coverage verification and review.'],prompts:[
  {title:'1. Plan this story',text:'Plan only [STORY_ID] using its approved AC and dependencies. Check the repository, branch and existing changes; inspect relevant code, tests and documented commands. Confirm AC, QA scenarios and the coverage requirement are present. If not, return to story review. '+coveragePolicy+' Propose small independently testable slices, the checks for each, risks and unresolved questions. Do not edit code or start another story.'},
  {title:'2. Implement one slice',text:'Implement only [ONE_APPROVED_SLICE] of [STORY_ID] against [APPROVED_AC]. Inspect relevant code first and preserve unrelated changes. Add meaningful tests for expected, negative and boundary behavior; use documented project commands. '+coveragePolicy+' Run relevant checks and inspect the diff. Report changed files, actual results, failed or unrun checks and remaining AC. Stop before the next slice or story. Repeat for this story’s remaining slices only after review of the result.'},
@@ -48,6 +48,8 @@ Process — run these stages in order using the EXACT playbook prompt text for e
 2) Define the epic
 3) Design the approach
 4) Draft stories
+5) Review & create stories in READINESS-ONLY mode: validate drafts for clarity,
+   ownership, testability and gaps. Still do NOT create tickets or invent IDs.
 
 Markdown must include:
 - The client requirement enclosed verbatim in a fenced code block
@@ -55,9 +57,17 @@ Markdown must include:
 - Clear labels: Known facts / Assumptions / Unknowns / Proposals / DRAFT
 - Blocking questions for the owner (P0/P1/P2)
 - One draft epic
+- For stateful domains (queues, workflows, approvals): explicit entity states
+  and allowed transitions before story AC that depend on them
 - User stories with: summary, need/value, scope/exclusions, dependencies,
   numbered Given/When/Then AC, negative/boundary cases, QA mapped to AC,
-  test requirements, definition of done, and the playbook coverage policy
+  test requirements, definition of done
+- One owning story per observable behavior; do not test later-story behavior
+  inside earlier foundation stories
+- Full story detail only for the proposed MVP set; label the rest as backlog themes
+  (title + intent only) until expanded
+- Cite the team’s agreed coverage gate for new/changed code; if unknown, ask.
+  Do not invent a gate. Prefer 100% only when that is the team’s stated gate.
 - If timeline conflicts with scope: propose an MVP cut vs stretch
 - A short "Playbook feedback" section: what worked / what to improve
 
@@ -70,9 +80,26 @@ Rules from the playbook:
 
 Optional context (only if provided):
 - Target repos/paths: …
-- Team conventions: …
+- Team conventions / coverage gate: …
 
 Client requirement:
 """
 [PASTE REQUIREMENT HERE]
+"""`;
+const reviewMdCritiquePrompt=`Review this Engineering AI Playbook review-markdown as a critical tech lead.
+Do NOT rewrite the whole document unless asked. Do NOT create tickets.
+
+Return:
+1) Verdict: discovery-ready / needs revision / not ready
+2) High/medium findings table: issue, why it matters, what to change
+3) Missing state/transition or operating-model gaps
+4) Story-ownership leaks (early stories testing later capabilities)
+5) Vague AC that lack pass/fail thresholds
+6) Whether stretch items are wrongly treated as full stories
+7) Whether coverage gate is explicit or still assumed
+8) The smallest revision checklist before readiness-only re-validation
+
+Document to review:
+"""
+[PASTE REVIEW MARKDOWN HERE]
 """`;
