@@ -9,3 +9,5 @@ Allow: /llms.txt
 Allow: /llms-full.txt
 Allow: /README.md
 Allow: /docs/
+
+Allow: /*.txt

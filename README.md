@@ -25,6 +25,7 @@ For offline use, clone this repository and open [index.html](index.html) in a br
 - Site: [index.html](https://smg99.github.io/engineering-ai-playbook/)
 - AI context: [llm.txt](https://smg99.github.io/engineering-ai-playbook/llm.txt) · [llms.txt](https://smg99.github.io/engineering-ai-playbook/llms.txt) · [llms-full.txt](https://smg99.github.io/engineering-ai-playbook/llms-full.txt)
 - Crawlers: [robots.txt](https://smg99.github.io/engineering-ai-playbook/robots.txt) · [sitemap.xml](https://smg99.github.io/engineering-ai-playbook/sitemap.xml)
+- Social preview: [og-cover.png](https://smg99.github.io/engineering-ai-playbook/assets/og-cover.png)
 
 ## Team guides
 
