@@ -4,9 +4,9 @@ This repository and website are public. Use fictional examples here. Real ticket
 
 ## Where should I put my real context?
 
-Keep the work item in the team’s approved ticket system and application code in its approved repository. Use real context in an AI tool only when the client and organization explicitly permit that provider and the data being shared. Having a paid account does not establish permission.
+Keep the work item in the team’s approved ticket system and application code in its approved code host. Use real context in an AI tool only when the client and organization explicitly permit that provider and the data being shared. Having a paid account does not establish permission.
 
-This website only displays and copies text. It does not connect to Jira, Bitbucket, your repository or an AI provider, and it has no form for submitting real ticket details. Clipboard contents are handled by your browser; you choose whether and where to paste them.
+This website only displays and copies text. It does not connect to your ticket system, code host, repository or an AI provider, and it has no form for submitting real ticket details. Clipboard contents are handled by your browser; you choose whether and where to paste them.
 
 ## Safe practice example
 

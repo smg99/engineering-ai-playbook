@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="A practical guide to your first AI-assisted engineering task, with copyable prompts, worked examples and team guides.">
 <title>Engineering AI Playbook</title>
-<link rel="stylesheet" href="assets/styles.css?v=sdlc1">
+<link rel="stylesheet" href="assets/styles.css?v=sdlc2">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header><a class="brand" href="#library">Engineering AI Playbook</a><nav aria-label="Main navigation"><a href="#library">SDLC flow</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
+<p class="site-boundary" role="note">Public guide only. Paste prompts into an <strong>approved</strong> AI tool with <strong>approved</strong> context. This site never creates tickets, runs code or sends data to an AI. <a href="#guide-security">Sharing rules</a></p>
 <main id="main">
 
 <section id="start" class="section" aria-labelledby="start-title">
 <h1 id="start-title">Your first story</h1>
-<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to the SDLC flow</a>.</p>
+<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to the SDLC flow</a> or jump to <a href="#stage/develop">Develop one story</a>.</p>
 
-<p class="notice">Use an approved tool and approved context. <a href="#guide-security">Check what you may share</a>.</p>
 <nav id="lesson-nav" aria-label="Story steps"></nav><p id="lesson-status" class="helper" role="status"></p>
 <article class="lesson-step" id="first-setup"><h3>1. Choose where to work</h3><div>
 <p><strong>Ask your lead:</strong> “Which AI tool and model are approved, which repository and branch should I use, and what checks must pass?” Use the project’s existing setup instructions.</p>
 <ul><li><strong>Editor or coding agent with an approved local project:</strong> paste prompts in its chat. Confirm it has the correct project open and can inspect files. Restrict permissions to the task; review proposed edits and commands.</li><li><strong>Browser chat without project access:</strong> paste only approved text for planning or explanation. It cannot inspect your local files, run tests or verify your branch unless an approved integration gives it that access. Ask it what context it needs; do not upload a whole repository.</li></ul>
-<p>You do not need Jira, Bitbucket or an MCP integration to practice this fictional example. For real work, use approved access and provide only the minimum permitted context. Do not give the AI credentials.</p>
+<p>You do not need a ticket system, code host or MCP integration to practice this fictional example.</p>
 <p><strong>Next:</strong> read the example below. Do not ask the AI to implement until requirements and the plan are clear.</p>
 </div></article>
 <article class="lesson-step" id="first-plan"><h3>2. Plan the story with a filled prompt</h3><div>
@@ -43,7 +43,7 @@ List unanswered questions, the smallest independently testable changes, how to v
 <p class="example-label">Illustrative response shape — not a real repository inspection</p>
 <ul><li><strong>Known:</strong> blank titles fail, end spaces are trimmed, the length limit is 100.</li><li><strong>Unknown:</strong> existing validation and test commands until code is inspected; the product’s definition of a Unicode character.</li><li><strong>Possible first slice:</strong> implement and test rejection of empty and whitespace-only titles using the existing validation pattern.</li><li><strong>Later slices:</strong> enforce the agreed length rule, then verify the form’s error display and saving behavior. Actual slice boundaries depend on the inspected code.</li><li><strong>Outside scope:</strong> redesigning the task form, adding accounts, or changing unrelated fields.</li></ul>
 <p>A <strong>slice</strong> is one small change you can check on its own. If a proposed slice is too large or unclear, ask the AI to split or explain it, then ask your lead to review if you still cannot judge it.</p>
-<p><strong>Unclear requirement?</strong> Ask the ticket owner, record the answer in the approved work item, and update the plan. Do not accept an AI guess as an approved requirement. You can work on a confirmed independent slice only if your team allows it.</p>
+<p><strong>Unclear requirement?</strong> Ask the ticket owner, record the answer in the approved work item, and update the plan. Do not accept an AI guess as an approved requirement.</p>
 <p><strong>Next:</strong> choose one understood, approved slice. If you cannot explain what will change and how you will check it, stop here and ask for help.</p>
 </div></article>
 <article class="lesson-step" id="first-execute"><h3>4. Implement one agreed change</h3><div>
@@ -57,11 +57,11 @@ Report changed files, commands actually run and their observed results, remainin
 <p><strong>Next:</strong> inspect what changed. A confident AI answer is not proof that the change works.</p>
 </div></article>
 <article class="lesson-step" id="first-verify"><h3>5. Verify the result yourself</h3><div>
-<ol><li><strong>Find the required checks:</strong> read the project README, contribution guide and existing CI configuration. Ask your lead if you cannot identify the commands. Do not assume every project uses the same test runner.</li><li><strong>Review the diff:</strong> inspect the changed lines in your editor’s source-control view. They should match the agreed slice. Ask the AI to explain any line you cannot understand; get human help if it remains unclear.</li><li><strong>Run the checks:</strong> record the command and actual outcome. “Not run” is a valid status; “passed” without execution is not.</li><li><strong>Try the behavior:</strong> for the blank-title slice, try empty input, spaces only, and a normal title. For the full story, also check the agreed 100/101-character boundary, trimming, and visible errors.</li><li><strong>Handle failures:</strong> keep the exact error in an approved private location, ask for investigation before another edit, and change strategy after two unsuccessful attempts. Do not remove a failing test just to get a pass.</li></ol>
+<ol><li><strong>Find the required checks:</strong> read the project README, contribution guide and existing CI configuration. Ask your lead if you cannot identify the commands.</li><li><strong>Review the diff:</strong> inspect the changed lines in your editor’s source-control view. They should match the agreed slice.</li><li><strong>Run the checks:</strong> record the command and actual outcome. “Not run” is a valid status; “passed” without execution is not.</li><li><strong>Try the behavior:</strong> for the blank-title slice, try empty input, spaces only, and a normal title. For the full story, also check the agreed 100/101-character boundary, trimming, and visible errors.</li><li><strong>Handle failures:</strong> keep the exact error privately, ask for investigation before another edit, and change strategy after two unsuccessful attempts. Do not remove a failing test just to get a pass.</li></ol>
 <p><strong>Next:</strong> repeat steps 3–5 for the remaining approved slices, then request review.</p>
 </div></article>
 <article class="lesson-step" id="first-review"><h3>6. Request review and hand off honestly</h3><div>
-<p>Ask your team’s reviewer to assess the change in the approved code platform. AI review is additional help; it does not replace required human review or authorize merging or deployment.</p>
+<p>Ask your team’s reviewer to assess the change in the approved code host. AI review is additional help; it does not replace required human review or authorize merging or deployment.</p>
 <div class="checklist" aria-label="Story completion checklist">
 <label><input type="checkbox">Every agreed acceptance criterion is covered; unresolved questions are recorded.</label>
 <label><input type="checkbox">I inspected the changed lines and can explain them.</label>
@@ -73,7 +73,7 @@ Report changed files, commands actually run and their observed results, remainin
 <pre class="prompt" id="example-review">Review the current diff for the agreed task-title story: reject blank titles, trim end spaces, allow 1–100 characters by the agreed counting rule, reject longer titles and show a helpful error.
 Do not edit code. Check each criterion against actual code and test evidence. List actionable issues with file and line references, and identify missing checks. Distinguish observed test results from tests not run. If you cannot access the diff or repository, ask for minimum approved context instead of claiming a review.</pre>
 <button class="copy" data-copy-source="example-review">Copy filled review prompt</button>
-<p><strong>Next:</strong> follow your team’s review and delivery process. If work must pause, use <a href="#guide-handoff">the handoff guide below</a>.</p>
+<p class="bridge"><strong>You are ready for real work.</strong> Open <a href="#stage/develop">Develop one story</a> in the SDLC flow, replace placeholders with your approved ticket, and keep using plan → slice → verify. If work must pause, use <a href="#guide-handoff">the handoff guide</a>.</p>
 </div></article>
 <div class="lesson-controls"><button id="previous-step">Previous</button><button id="next-step" class="primary">Next step</button></div>
 </section>
@@ -81,12 +81,12 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <div class="flow-heading"><div><h1 id="library-title">Where are you starting?</h1><p id="flow-intro">Choose what you already have. Start there, then work through one stage at a time.</p></div><button id="change-entry" hidden>Change starting point</button></div>
 <div id="entry-choices" class="entry-choices" aria-label="Starting points">
 <button data-entry="0"><strong>I have vague requirements</strong><span>Clarify the need, then define an epic.</span></button>
-<button data-entry="2"><strong>I have an epic description</strong><span>Check scope and draft Jira stories.</span></button>
-<button data-entry="4"><strong>I have an epic and Jira stories</strong><span>Check readiness and develop one story.</span></button>
+<button data-entry="2"><strong>I have an epic description</strong><span>Design the approach, then draft stories.</span></button>
+<button data-entry="4"><strong>I have an epic and stories</strong><span>Review readiness, then develop one story.</span></button>
 </div>
 <div id="stage-picker"><label for="stage-select">Or choose your current stage</label><select id="stage-select"><option value="">Choose a stage…</option></select></div>
 <div id="stage-workspace" class="stage-workspace" hidden><nav id="stage-list" aria-label="SDLC stages"></nav><article id="stage-detail"></article></div>
-<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. This site never creates Jira tickets or tracks completion. <a href="#start">New to AI-assisted work?</a></p>
+<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. <a href="#start">New to AI-assisted work?</a></p>
 <details id="handoff-tools"><summary>Need to pause or resume work?</summary><div><label for="handoff-select">Handoff action</label><select id="handoff-select"><option value="0">Pause work</option><option value="1">Resume work</option></select><pre id="handoff-text" class="prompt"></pre><button class="copy" data-copy-source="handoff-text">Copy handoff prompt</button></div></details>
 <noscript>Enable JavaScript to choose stages and copy prompts. The worked example and guides remain readable on this page.</noscript>
 </section>
@@ -110,33 +110,34 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <li>Keep file access and permissions limited to what the task needs. Do not hand over credentials or copy a whole repository into a chat just to get started.</li>
 </ol>
 <h3>Optional integrations</h3>
-<p>MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to Jira or Bitbucket is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.</p>
+<p>MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to your ticket system or code host is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.</p>
 </div></details>
 <details id="guide-security"><summary>Protect client information</summary><div>
 <p>This repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.</p>
 <h3>Where should I put my real context?</h3>
-<p>Keep the work item in the team’s approved ticket system and application code in its approved repository. Use real context in an AI tool only when the client and organization explicitly permit that provider and the data being shared. Having a paid account does not establish permission.</p>
-<p>This website only displays and copies text. It does not connect to Jira, Bitbucket, your repository or an AI provider, and it has no form for submitting real ticket details. Clipboard contents are handled by your browser; you choose whether and where to paste them.</p>
+<p>Keep the work item in the team’s approved ticket system and application code in its approved code host. Use real context in an AI tool only when the client and organization explicitly permit that provider and the data being shared. Having a paid account does not establish permission.</p>
+<p>This website only displays and copies text. It does not connect to your ticket system, code host, repository or an AI provider, and it has no form for submitting real ticket details. Clipboard contents are handled by your browser; you choose whether and where to paste them.</p>
 <h3>Safe practice example</h3>
 <p>Practice with “a fictional task app that requires a title” rather than a real customer’s ticket, screenshots or code. Replace names and sensitive values with placeholders only when your team confirms the remaining context is safe; anonymizing a name alone may not remove proprietary information.</p>
 <h3>If you are unsure</h3>
 <p>Stop and ask your lead what may be shared and where. Never paste passwords, tokens or production records into a prompt. Review proposed tool access rather than accepting it automatically. Keep project plans, test evidence and handoff notes in approved private locations. Follow your organization’s incident process if something restricted is shared accidentally.</p>
 </div></details>
 <details id="guide-workflow"><summary>From vague requirement to verified release</summary><div>
-<p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and Jira stories. Stage selection is navigation; this website does not track or approve real work.</p>
-<h3>Follow the eight stages</h3>
+<p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.</p>
+<h3>Follow the nine stages</h3>
 <ol>
-<li>Clarify requirements: separate facts from assumptions, identify users and outcomes, and resolve blocking questions with the owner.</li>
+<li>Clarify requirements: separate facts from assumptions, identify users and outcomes, surface relevant non-functional needs, and resolve blocking questions with the owner.</li>
 <li>Define the epic: agree scope, exclusions, success criteria, risks and dependencies before treating the epic as ready.</li>
-<li>Draft Jira stories: split the epic into small independently testable stories. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.</li>
-<li>Review and create stories: have the owner approve the AC and confirm the Jira project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent Jira IDs or approval.</li>
+<li>Design the approach: capture a lightweight design note—touchpoints, contracts, NFRs and risks—and get tech-lead or owner agreement before splitting work.</li>
+<li>Draft stories: split the epic into small independently testable stories for your ticket system. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.</li>
+<li>Review and create stories: have the owner approve the AC and confirm the project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent ticket IDs or approval.</li>
 <li>Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another.</li>
-<li>Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review.</li>
-<li>QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.</li>
-<li>Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, rollout and rollback readiness, then verify actual post-release behavior and monitoring through the existing team process.</li>
+<li>Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review (including tech-lead review when your team requires it).</li>
+<li>QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment; add a short exploratory pass. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.</li>
+<li>Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, environment promotion, rollout and rollback readiness, then verify actual post-release smoke checks and monitoring through the existing team process.</li>
 </ol>
 <h3>Coverage and acceptance criteria</h3>
-<p>Each story must state 100% line, branch, function and statement coverage for new or changed application code using the project’s agreed measurement and CI gate. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.</p>
+<p>Each story must state the project’s agreed coverage gate for new or changed application code (prefer 100% line, branch, function and statement when tooling supports it). State the actual gate if it differs. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.</p>
 <p>Acceptance criteria describe observable outcomes QA can test, including relevant error and boundary behavior. Coverage measures execution; it does not establish that those outcomes are correct. QA must verify them separately.</p>
 <h3>Stop and ask for help</h3>
 <ul>
@@ -173,6 +174,8 @@ Next action: [one specific action]</pre>
 <dl class="glossary">
 <div><dt>Story / acceptance criteria (AC)</dt><dd>A small user need and the agreed conditions that prove it is met. Ask the ticket owner when those conditions are unclear.</dd></div>
 <div><dt>Epic</dt><dd>A larger goal delivered through several stories. Most beginners can start with their assigned story.</dd></div>
+<div><dt>Design note</dt><dd>A lightweight agreed approach covering touchpoints, contracts, NFRs and risks before stories are split.</dd></div>
+<div><dt>Ticket system / code host</dt><dd>Where work items live (for example Jira, Linear or GitHub Issues) and where application code, PRs and CI live (for example Bitbucket, GitHub or GitLab).</dd></div>
 <div><dt>Slice / scope</dt><dd>A slice is one independently checkable change. Scope is the boundary of what you have agreed to change.</dd></div>
 <div><dt>Repository / branch / diff</dt><dd>The project’s tracked files, a line of work within it, and the changed lines you inspect before review.</dd></div>
 <div><dt>Regression test / CI</dt><dd>A test that catches a bug returning. Continuous integration (CI) runs the project’s automated checks; it may not cover every requirement.</dd></div>
@@ -184,7 +187,7 @@ Next action: [one specific action]</pre>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 </main>
 <footer>Generic guidance only. Keep client work private. This site never sends context to an AI.</footer>
-<script src="assets/flow-data.js?v=sdlc1" defer></script>
-<script src="assets/app.js?v=sdlc1" defer></script>
+<script src="assets/flow-data.js?v=sdlc2" defer></script>
+<script src="assets/app.js?v=sdlc2" defer></script>
 </body>
 </html>

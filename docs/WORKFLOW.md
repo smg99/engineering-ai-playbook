@@ -1,21 +1,22 @@
 # From vague requirement to verified release
 
-Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and Jira stories. Stage selection is navigation; this website does not track or approve real work.
+Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.
 
-## Follow the eight stages
+## Follow the nine stages
 
-1. Clarify requirements: separate facts from assumptions, identify users and outcomes, and resolve blocking questions with the owner.
+1. Clarify requirements: separate facts from assumptions, identify users and outcomes, surface relevant non-functional needs, and resolve blocking questions with the owner.
 2. Define the epic: agree scope, exclusions, success criteria, risks and dependencies before treating the epic as ready.
-3. Draft Jira stories: split the epic into small independently testable stories. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.
-4. Review and create stories: have the owner approve the AC and confirm the Jira project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent Jira IDs or approval.
-5. Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another.
-6. Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review.
-7. QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.
-8. Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, rollout and rollback readiness, then verify actual post-release behavior and monitoring through the existing team process.
+3. Design the approach: capture a lightweight design note—touchpoints, contracts, NFRs and risks—and get tech-lead or owner agreement before splitting work.
+4. Draft stories: split the epic into small independently testable stories for your ticket system. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.
+5. Review and create stories: have the owner approve the AC and confirm the project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent ticket IDs or approval.
+6. Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another.
+7. Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review (including tech-lead review when your team requires it).
+8. QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment; add a short exploratory pass. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.
+9. Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, environment promotion, rollout and rollback readiness, then verify actual post-release smoke checks and monitoring through the existing team process.
 
 ## Coverage and acceptance criteria
 
-Each story must state 100% line, branch, function and statement coverage for new or changed application code using the project’s agreed measurement and CI gate. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.
+Each story must state the project’s agreed coverage gate for new or changed application code (prefer 100% line, branch, function and statement when tooling supports it). State the actual gate if it differs. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.
 
 Acceptance criteria describe observable outcomes QA can test, including relevant error and boundary behavior. Coverage measures execution; it does not establish that those outcomes are correct. QA must verify them separately.
 

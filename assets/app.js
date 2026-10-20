@@ -5,8 +5,18 @@ const stageDetail=document.getElementById('stage-detail');
 const stageSelect=document.getElementById('stage-select');
 let currentStage=null,currentPrompt=0,step=0;
 const stagePromptText=(stageIndex,promptIndex)=>flowStages[stageIndex].prompts[promptIndex].text+'\n\n'+boundary;
+const lastStageIndex=()=>flowStages.length-1;
 stageSelect.innerHTML+=flowStages.map((stage,index)=>`<option value="${index}">${index+1}. ${escapeHTML(stage.title)}</option>`).join('');
 stageList.innerHTML=flowStages.map((stage,index)=>`<a href="#stage/${stage.id}" data-stage="${index}"><span class="stage-number">${index+1}</span><span>${escapeHTML(stage.title)}</span></a>`).join('');
+function stageActions(index){
+ const stage=flowStages[index];
+ const prev=index>0?`<a href="#stage/${flowStages[index-1].id}">Previous stage</a>`:'';
+ const next=index<lastStageIndex()?`<a class="primary" href="#stage/${flowStages[index+1].id}">Go to ${escapeHTML(flowStages[index+1].title)}</a>`:'';
+ const developAgain=stage.id==='qa'||stage.id==='release'?`<a href="#stage/develop">Develop the next story</a>`:'';
+ const qaReturn=stage.id==='qa'?`<a href="#stage/develop">QA failed? Return to this story</a>`:'';
+ const qaHint=stage.id==='qa'?'<p class="helper">Release only when all stories in the release scope are accepted. Otherwise pick the next ready story.</p>':'';
+ return `<nav class="stage-actions" aria-label="Next stage actions">${prev}${next}${developAgain}${qaReturn}</nav>${qaHint}`;
+}
 function renderStage(index){
  if(currentStage!==index)currentPrompt=0;
  currentStage=index;const stage=flowStages[index];
@@ -20,8 +30,8 @@ function renderStage(index){
  document.querySelector('#stage-picker label').textContent='Current stage';
  stageList.querySelectorAll('a').forEach((link,i)=>{if(i===index)link.setAttribute('aria-current','step');else link.removeAttribute('aria-current');});
  const text=stagePromptText(index,currentPrompt);
- const options=stage.prompts.length>1?`<label for="stage-action">Choose an action within this story</label><select id="stage-action">${stage.prompts.map((prompt,i)=>`<option value="${i}" ${i===currentPrompt?'selected':''}>${escapeHTML(prompt.title)}</option>`).join('')}</select>`:'';
- stageDetail.innerHTML=`<span class="tag">You are here · Stage ${index+1} of ${flowStages.length}</span><h2 tabindex="-1">${escapeHTML(stage.title)}</h2><p>${escapeHTML(stage.when)}</p><div class="flow-inputs"><p><strong>Have ready:</strong> ${escapeHTML(stage.input)}</p><p><strong>Leave with:</strong> ${escapeHTML(stage.output)}</p></div>${options}<div class="prompt-bar"><button class="copy" data-stage-copy>Copy ${escapeHTML(stage.prompts[currentPrompt].title.toLowerCase())} prompt</button><span class="token-count" title="Template only; excludes the context you add. Rough character-based estimate, not a billing count.">Template ≈${Math.ceil(text.length/4)} tokens</span></div><pre class="prompt">${escapeHTML(text)}</pre><div class="stage-gate"><h3>Ready to move on when</h3><ul>${stage.gate.map(check=>`<li>${escapeHTML(check)}</li>`).join('')}</ul></div><nav class="stage-actions" aria-label="Next stage actions">${index>0?`<a href="#stage/${flowStages[index-1].id}">Previous stage</a>`:''}${index<7?`<a class="primary" href="#stage/${flowStages[index+1].id}">Go to ${escapeHTML(flowStages[index+1].title)}</a>`:''}${index===6||index===7?'<a href="#stage/develop">Develop the next story</a>':''}${index===6?'<a href="#stage/develop">QA failed? Return to this story</a>':''}</nav>${index===6?'<p class="helper">Release only when all stories in the release scope are accepted. Otherwise pick the next ready story.</p>':''}<p class="helper">Moving between stages does not approve work or mark anything complete.</p>`;
+ const options=stage.prompts.length>1?`<label for="stage-action">Choose an action</label><select id="stage-action">${stage.prompts.map((prompt,i)=>`<option value="${i}" ${i===currentPrompt?'selected':''}>${escapeHTML(prompt.title)}</option>`).join('')}</select>`:'';
+ stageDetail.innerHTML=`<span class="tag">You are here · Stage ${index+1} of ${flowStages.length}</span><h2 tabindex="-1">${escapeHTML(stage.title)}</h2><p>${escapeHTML(stage.when)}</p><div class="flow-inputs"><p><strong>Have ready:</strong> ${escapeHTML(stage.input)}</p><p><strong>Leave with:</strong> ${escapeHTML(stage.output)}</p></div>${options}<div class="prompt-bar"><button class="copy" data-stage-copy>Copy ${escapeHTML(stage.prompts[currentPrompt].title.toLowerCase())} prompt</button><span class="token-count" title="Template only; excludes the context you add. Rough character-based estimate, not a billing count.">Template ≈${Math.ceil(text.length/4)} tokens</span></div><pre class="prompt">${escapeHTML(text)}</pre><div class="stage-gate"><h3>Ready to move on when</h3><ul>${stage.gate.map(check=>`<li>${escapeHTML(check)}</li>`).join('')}</ul></div>${stageActions(index)}<p class="helper">Moving between stages does not approve work or mark anything complete.</p>`;
 }
 function showEntry(){
  currentStage=null;currentPrompt=0;
@@ -51,12 +61,12 @@ function showStep(index,focus=false){
  lessonNav.querySelectorAll('button').forEach((button,i)=>{if(i===step)button.setAttribute('aria-current','step');else button.removeAttribute('aria-current');});
  document.getElementById('lesson-status').textContent=`Step ${step+1} of ${steps.length}`;
  document.getElementById('previous-step').disabled=step===0;
- document.getElementById('next-step').textContent=step===steps.length-1?'Choose your SDLC stage':'Next step';
+ document.getElementById('next-step').textContent=step===steps.length-1?'Open Develop one story':'Next step';
  if(focus){const heading=steps[step].querySelector('h3');heading.tabIndex=-1;heading.focus();}
 }
 lessonNav.addEventListener('click',event=>{const button=event.target.closest('[data-step]');if(button)showStep(Number(button.dataset.step),true);});
 document.getElementById('previous-step').addEventListener('click',()=>showStep(step-1,true));
-document.getElementById('next-step').addEventListener('click',()=>{if(step===steps.length-1)location.hash='library';else showStep(step+1,true);});
+document.getElementById('next-step').addEventListener('click',()=>{if(step===steps.length-1)location.hash='stage/develop';else showStep(step+1,true);});
 const views=['library','start','guides'];
 function route(focus=false){
  let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{id='library';}

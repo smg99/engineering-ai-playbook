@@ -5,8 +5,8 @@ A **public, tool-agnostic SDLC flow** and reusable execution guide for our engin
 ## Start here
 
 1. Visit **[Engineering AI Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required to read the guide.
-2. New to the workflow? Choose **Start your first story** for a fictional worked example, filled prompts and a verification checklist.
-3. In **SDLC flow**, choose vague requirements, an existing epic, or an epic with Jira stories. Or select any of the eight stages directly. Read inputs, expected outputs and exit checks; copy the current stage’s prompt into an approved tool and replace its placeholders.
+2. New to the workflow? Choose **First story** for a fictional worked example, filled prompts and a verification checklist. Finish there and jump straight into **Develop one story**.
+3. In **SDLC flow**, choose vague requirements, an existing epic, or an epic with stories. Or select any of the nine stages directly. Read inputs, expected outputs and exit checks; copy the current stage’s prompt into an approved tool and replace its placeholders.
 4. Read Team guides and the glossary on the same page. No separate documentation window is needed.
 5. Verify results with actual code, tests and diffs, then follow your team’s review process. The site does not run AI, inspect code or update tickets.
 
@@ -22,7 +22,7 @@ For offline use, clone this repository and open [index.html](index.html) in a br
 
 ## Boundaries
 
-Client Jira remains the source of truth for work items; client Bitbucket remains the home for application code, PRs and CI. **No client tickets, code, credentials, proprietary designs or confidential operational information should be copied into this repository.**
+The client’s ticket system remains the source of truth for work items; the client’s code host remains the home for application code, PRs and CI. **No client tickets, code, credentials, proprietary designs or confidential operational information should be copied into this repository.**
 
 This repository and its GitHub Pages site are deliberately **public**. Publish only generic guidance and synthetic examples. Keep client-specific plans, state notes and development strategies in approved private locations.
 
@@ -32,7 +32,7 @@ No dependency installation, paid API, framework, telemetry or database. The site
 
 Edit the four guide sources in `docs/`, then run `python3 scripts/sync-guides.py` to embed their readable content into `index.html`. Commit both source and generated HTML. Run `python3 scripts/sync-guides.py --check` to detect drift. Python is needed only for maintaining guides, not for reading or serving the site.
 
-Verify all three starting points, eight-stage navigation and direct links, one-story actions, QA return/next-story paths, the first-story walkthrough, exact copying, inline guides, keyboard focus and narrow-screen layout before publishing. Personal checklist selections reset on reload; nothing is sent to a backend.
+Verify all three starting points, nine-stage navigation and direct links, one-story actions, QA return/next-story paths, the first-story walkthrough, exact copying, inline guides, keyboard focus and narrow-screen layout before publishing. Personal checklist selections reset on reload; nothing is sent to a backend.
 
 ## Hosting
 
@@ -46,6 +46,6 @@ Light neutral surfaces and a restrained violet accent are inspired by the suppli
 
 ## Flow contract
 
-Clarify requirements → Define epic → Draft Jira stories → Review and create stories → Develop one story → Verify and review → QA validation → Release and monitor. Entry links are `#stage/clarify`, `#stage/stories` and `#stage/develop`. Every stage can be revisited. Selection is navigation, never evidence of Jira progress or approval.
+Clarify requirements → Define epic → Design the approach → Draft stories → Review and create stories → Develop one story → Verify and review → QA validation → Release and monitor. Entry links are `#stage/clarify`, `#stage/design` and `#stage/ready`. Every stage can be revisited. Selection is navigation, never evidence of ticket progress or approval.
 
-Story drafts include numbered QA-testable AC and a requirement for 100% line, branch, function and statement coverage on new or changed application code, with legacy baseline and measurement limitations reported separately. Missing evidence blocks a pass. The public site never creates tickets, stores project context, executes code or grants deployment authorization.
+Story drafts include numbered QA-testable AC and the project’s agreed coverage gate for new or changed application code (prefer 100% when tooling supports it), with legacy baseline and measurement limitations reported separately. Missing evidence blocks a pass. The public site never creates tickets, stores project context, executes code or grants deployment authorization.
