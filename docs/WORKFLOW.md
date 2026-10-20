@@ -1,5 +1,7 @@
 # From vague requirement to verified release
 
+This is the execution guide for the **AI-Assisted SDLC Playbook**: use approved AI tools stage-by-stage from clarification through release, with human gates and verified evidence.
+
 Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.
 
 For a new vague requirement, use the visible review-markdown panel on the SDLC home view: generate a private markdown (clarify → epic → design → stories → readiness-only check), then ask a different approved AI to critique it. Adapt useful feedback with your owner before creating tickets. Details live in the Generate a review markdown before tickets guide.

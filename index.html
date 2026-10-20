@@ -3,13 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A practical guide to your first AI-assisted engineering task, with copyable prompts, worked examples and team guides.">
-<title>Engineering AI Playbook</title>
-<link rel="stylesheet" href="assets/styles.css?v=sdlc5">
+<title>AI-Assisted SDLC Playbook | AI Software Development Lifecycle Prompts</title>
+<meta name="description" content="Free AI-assisted SDLC playbook for engineering teams: nine-stage software development lifecycle prompts from vague requirements to verified release. Review markdown before tickets, second-AI critique, coverage gates—tool-agnostic.">
+<meta name="keywords" content="AI-assisted SDLC, AI SDLC playbook, AI software development lifecycle, AI coding workflow, engineering AI prompts, review markdown before Jira, AI pair programming SDLC, verified AI development, tool-agnostic AI engineering">
+<meta name="author" content="AI-Assisted SDLC Playbook contributors">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://smg99.github.io/engineering-ai-playbook/">
+<link rel="alternate" type="text/plain" href="https://smg99.github.io/engineering-ai-playbook/llm.txt" title="LLM context">
+<link rel="alternate" type="text/plain" href="https://smg99.github.io/engineering-ai-playbook/llms.txt" title="llms.txt">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI-Assisted SDLC Playbook">
+<meta property="og:title" content="AI-Assisted SDLC Playbook | AI Software Development Lifecycle Prompts">
+<meta property="og:description" content="Nine-stage AI-assisted SDLC with copyable prompts, MD-before-tickets, second-AI critique, and human verification gates. Free and tool-agnostic.">
+<meta property="og:url" content="https://smg99.github.io/engineering-ai-playbook/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI-Assisted SDLC Playbook">
+<meta name="twitter:description" content="AI-assisted software development lifecycle playbook: prompts, gates, and review-markdown before tickets.">
+<link rel="stylesheet" href="assets/styles.css?v=sdlc6">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://smg99.github.io/engineering-ai-playbook/#website",
+      "name": "AI-Assisted SDLC Playbook",
+      "alternateName": ["Engineering AI Playbook", "AI SDLC Playbook", "AI-assisted software development lifecycle playbook"],
+      "url": "https://smg99.github.io/engineering-ai-playbook/",
+      "description": "Free, tool-agnostic AI-assisted SDLC playbook with nine-stage prompts from clarification to release.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "AI-Assisted SDLC Playbook",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://smg99.github.io/engineering-ai-playbook/",
+      "description": "Static public playbook of AI-assisted software development lifecycle prompts and gates for engineering teams."
+    },
+    {
+      "@type": "HowTo",
+      "name": "Run an AI-assisted SDLC from vague requirements to verified release",
+      "description": "Use the AI-Assisted SDLC Playbook stages with approved AI tools, human gates, and verified evidence.",
+      "step": [
+        { "@type": "HowToStep", "name": "Clarify requirements", "text": "Separate facts, assumptions and unknowns; resolve blocking questions with the owner." },
+        { "@type": "HowToStep", "name": "Define the epic", "text": "Draft scope, exclusions, success criteria and risks for owner approval." },
+        { "@type": "HowToStep", "name": "Design the approach", "text": "Capture a lightweight design note before splitting stories." },
+        { "@type": "HowToStep", "name": "Draft and review stories", "text": "Write QA-testable stories; optionally generate a review markdown and critique with a second AI before tickets." },
+        { "@type": "HowToStep", "name": "Develop one story", "text": "Plan and implement one story in small verified slices." },
+        { "@type": "HowToStep", "name": "Verify, QA and release", "text": "Check AC evidence, coverage gate, QA sign-off, then authorized release and monitoring." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI-assisted SDLC playbook?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An AI-assisted SDLC playbook is a reusable engineering method for using approved AI tools across the software development lifecycle—clarify, epic, design, stories, develop, verify, QA and release—with human exit gates and verified evidence instead of unverified AI output."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use AI for vague requirements before creating Jira tickets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the review-markdown panel on the AI-Assisted SDLC Playbook home: generate a private markdown (clarify → epic → design → stories → readiness-only), ask a different approved AI to critique it, adapt feedback with the owner, then create tickets only for the approved set."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the AI-Assisted SDLC Playbook tied to a specific AI vendor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It is tool-agnostic. Paste prompts into whichever AI tool and model your team approves. The public site never runs AI or sends your data to a provider."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this site create tickets or change my code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It only displays and copies prompt text. Tickets, code, PRs and CI stay in your approved private systems."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><a class="brand" href="#library">Engineering AI Playbook</a><nav aria-label="Main navigation"><a href="#library">SDLC flow</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
+<header><a class="brand" href="#library">AI-Assisted SDLC Playbook</a><nav aria-label="Main navigation"><a href="#library">SDLC flow</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
 <p class="site-boundary" role="note">Public guide only. Paste prompts into an <strong>approved</strong> AI tool with <strong>approved</strong> context. This site never creates tickets, runs code or sends data to an AI. <a href="#guide-security">Sharing rules</a></p>
 <main id="main">
 
@@ -78,7 +167,7 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <div class="lesson-controls"><button id="previous-step">Previous</button><button id="next-step" class="primary">Next step</button></div>
 </section>
 <section id="library" class="section" aria-labelledby="library-title">
-<div class="flow-heading"><div><h1 id="library-title">Where are you starting?</h1><p id="flow-intro">Choose what you already have. Start there, then work through one stage at a time.</p></div><button id="change-entry" hidden>Change starting point</button></div>
+<div class="flow-heading"><div><h1 id="library-title">Where are you starting?</h1><p id="flow-intro">Choose what you already have. Start there, then work through one stage at a time.</p><p class="seo-lead"><strong>AI-Assisted SDLC Playbook</strong> — a free, tool-agnostic <strong>AI software development lifecycle</strong> method: nine stages of copyable prompts from vague requirements to verified release, including review-markdown before tickets and optional second-AI critique.</p></div><button id="change-entry" hidden>Change starting point</button></div>
 <div id="entry-choices" class="entry-choices" aria-label="Starting points">
 <button data-entry="0"><strong>I have vague requirements</strong><span>Clarify the need, then define an epic.</span></button>
 <button data-entry="2"><strong>I have an epic description</strong><span>Design the approach, then draft stories.</span></button>
@@ -103,7 +192,7 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <p>Tools, workflow and boundaries. Open only what you need. <a href="#glossary">Look up a term</a>.</p>
 <!-- team-guides:start -->
 <details id="guide-tools"><summary>Choose and prepare your AI tool</summary><div>
-<p>Use the tool and model your team approves. Ask your lead before sending any real work: “Which tool may I use, what information may I share, and which project setup instructions should I follow?” This playbook does not approve a provider for your client.</p>
+<p>Use the tool and model your team approves. Ask your lead before sending any real work: “Which tool may I use, what information may I share, and which project setup instructions should I follow?” The AI-Assisted SDLC Playbook does not approve a provider for your client.</p>
 <h3>Two ways to use the prompts</h3>
 <ul>
 <li>Browser chat: useful for discussing approved requirements or explaining permitted snippets. Without an approved connection, it cannot inspect your local repository, verify a branch or run tests. Paste the prompt in its chat and supply only the minimum approved context it asks for.</li>
@@ -142,7 +231,7 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 </ol>
 <h3>Reusable generate prompt</h3>
 <p>Copy from the SDLC home panel, or use:</p>
-<pre class="prompt">You are running the Engineering AI Playbook offline as a review workflow.
+<pre class="prompt">You are running the AI-Assisted SDLC Playbook offline as a review workflow.
 
 Source of truth for stage prompts:
 https://smg99.github.io/engineering-ai-playbook/
@@ -197,7 +286,7 @@ Client requirement:
 &quot;&quot;&quot;</pre>
 <h3>Reusable critique prompt (second AI)</h3>
 <p>After the markdown exists, paste it into a different approved model or a fresh session:</p>
-<pre class="prompt">Review this Engineering AI Playbook review-markdown as a critical tech lead.
+<pre class="prompt">Review this AI-Assisted SDLC Playbook review-markdown as a critical tech lead.
 Do NOT rewrite the whole document unless asked. Do NOT create tickets.
 
 Return:
@@ -223,7 +312,7 @@ Document to review:
 </ul>
 </div></details>
 <details id="guide-security"><summary>Protect client information</summary><div>
-<p>This repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.</p>
+<p>The AI-Assisted SDLC Playbook repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.</p>
 <h3>Where should I put my real context?</h3>
 <p>Keep the work item in the team’s approved ticket system and application code in its approved code host. Use real context in an AI tool only when the client and organization explicitly permit that provider and the data being shared. Having a paid account does not establish permission.</p>
 <p>This website only displays and copies text. It does not connect to your ticket system, code host, repository or an AI provider, and it has no form for submitting real ticket details. Clipboard contents are handled by your browser; you choose whether and where to paste them.</p>
@@ -233,6 +322,7 @@ Document to review:
 <p>Stop and ask your lead what may be shared and where. Never paste passwords, tokens or production records into a prompt. Review proposed tool access rather than accepting it automatically. Keep project plans, test evidence and handoff notes in approved private locations. Follow your organization’s incident process if something restricted is shared accidentally.</p>
 </div></details>
 <details id="guide-workflow"><summary>From vague requirement to verified release</summary><div>
+<p>This is the execution guide for the **AI-Assisted SDLC Playbook**: use approved AI tools stage-by-stage from clarification through release, with human gates and verified evidence.</p>
 <p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.</p>
 <p>For a new vague requirement, use the visible review-markdown panel on the SDLC home view: generate a private markdown (clarify → epic → design → stories → readiness-only check), then ask a different approved AI to critique it. Adapt useful feedback with your owner before creating tickets. Details live in the Generate a review markdown before tickets guide.</p>
 <h3>Follow the nine stages</h3>
@@ -281,6 +371,16 @@ Next action: [one specific action]</pre>
 </div></details>
 <!-- team-guides:end -->
 </section>
+<details id="faq"><summary>FAQ: AI-assisted SDLC</summary><div>
+<h3>What is an AI-assisted SDLC playbook?</h3>
+<p>A reusable engineering method for using approved AI tools across the software development lifecycle—clarify, epic, design, stories, develop, verify, QA and release—with human exit gates and verified evidence instead of unverified AI output.</p>
+<h3>How do I use AI for vague requirements before creating tickets?</h3>
+<p>Use the review-markdown panel on this home view: generate a private markdown, ask a different approved AI to critique it, adapt feedback with the owner, then create tickets only for the approved set.</p>
+<h3>Is this tied to a specific AI vendor?</h3>
+<p>No. It is tool-agnostic. Paste prompts into whichever AI tool your team approves. This site never runs AI or sends your data to a provider.</p>
+<h3>Does this site create tickets or change code?</h3>
+<p>No. It only displays and copies prompt text. Tickets, code, PRs and CI stay in your approved private systems.</p>
+</div></details>
 <details id="glossary"><summary>Glossary</summary><div>
 <dl class="glossary">
 <div><dt>Story / acceptance criteria (AC)</dt><dd>A small user need and the agreed conditions that prove it is met. Ask the ticket owner when those conditions are unclear.</dd></div>
@@ -298,8 +398,8 @@ Next action: [one specific action]</pre>
 </div></details>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 </main>
-<footer>Generic guidance only. Keep client work private. This site never sends context to an AI.</footer>
-<script src="assets/flow-data.js?v=sdlc5" defer></script>
-<script src="assets/app.js?v=sdlc5" defer></script>
+<footer>AI-Assisted SDLC Playbook — generic guidance only. Keep client work private. This site never sends context to an AI. <a href="llm.txt">llm.txt</a> · <a href="llms.txt">llms.txt</a></footer>
+<script src="assets/flow-data.js?v=sdlc6" defer></script>
+<script src="assets/app.js?v=sdlc6" defer></script>
 </body>
 </html>

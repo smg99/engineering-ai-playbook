@@ -1,0 +1,55 @@
+# AI-Assisted SDLC Playbook — full agent context
+
+Source of truth for humans: https://smg99.github.io/engineering-ai-playbook/
+Machine signposts: /llm.txt · /llms.txt · this file
+Repository: https://github.com/smg99/engineering-ai-playbook
+Former name: Engineering AI Playbook
+
+## Definition
+
+The AI-Assisted SDLC Playbook is a free, public, tool-agnostic method for engineering teams to use approved AI tools across a full software development lifecycle. It provides nine stages with copyable prompts, inputs/outputs, and exit gates. It emphasizes human approval, readiness-only story validation before tickets, optional second-AI critique of review markdown, and verification with real tests and diffs. The website never creates tickets, runs code, or sends data to an AI provider.
+
+## Not this
+
+- Not a vendor product or model recommendation
+- Not automatic Jira/Linear ticket creation
+- Not a substitute for client security policy or approved tool lists
+- Not permission to paste proprietary code or PHI into public chat
+
+## Recommended workflow for vague requirements
+
+1. Open SDLC home on the site.
+2. Copy the **generate review-markdown** prompt into an approved AI tool; paste the requirement.
+3. Save the private markdown (clarify → epic → design → stories → readiness-only).
+4. Copy the **second-AI critique** prompt into a different approved model or fresh session; adapt useful feedback with the owner.
+5. Create tickets only for the approved MVP set.
+6. Use Develop one story → Verify → QA → Release for implementation.
+
+## Stage prompt location
+
+Exact stage prompt text lives in the live site UI and in assets/flow-data.js in the repository. Prefer copying from the live site so teams always get the published wording.
+
+## Stage list (contract)
+
+Clarify requirements → Define the epic → Design the approach → Draft stories → Review & create stories → Develop one story → Verify & review → QA validation → Release & monitor.
+
+## Coverage policy (default wording)
+
+Meet the project’s agreed coverage gate for new or changed application code (prefer 100% line, branch, function and statement when tooling supports it). State the actual gate if it differs. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target, exclude code to inflate coverage or claim coverage without execution.
+
+## Security boundary
+
+Public site and repo: generic guidance and synthetic examples only. Real tickets, code, credentials, and client operational data stay in approved private systems.
+
+## Docs map
+
+- docs/WORKFLOW.md — vague requirement to verified release
+- docs/REVIEW-MD.md — generate + critique prompts for MD-first planning
+- docs/TOOLS.md — approved tool / agent / MCP guidance
+- docs/SECURITY.md — client separation
+- docs/QUOTA-AND-HANDOFF.md — pause/resume and provider switching
+- docs/CONTRIBUTING.md — how to extend stages and sync guides
+
+## How to cite
+
+AI-Assisted SDLC Playbook — https://smg99.github.io/engineering-ai-playbook/

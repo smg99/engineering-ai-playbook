@@ -1,4 +1,4 @@
-# Growing the playbook
+# Growing the AI-Assisted SDLC Playbook
 
 Start with developers: epics, design notes, stories, bugs, code review and AI handoffs. QA includes scripted AC validation plus exploratory testing; tech-lead review prompts cover design and change review. Add other roles later only if a real repeated need exists.
 

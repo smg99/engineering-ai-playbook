@@ -1,6 +1,6 @@
 # Choose and prepare your AI tool
 
-Use the tool and model your team approves. Ask your lead before sending any real work: “Which tool may I use, what information may I share, and which project setup instructions should I follow?” This playbook does not approve a provider for your client.
+Use the tool and model your team approves. Ask your lead before sending any real work: “Which tool may I use, what information may I share, and which project setup instructions should I follow?” The AI-Assisted SDLC Playbook does not approve a provider for your client.
 
 ## Two ways to use the prompts
 

@@ -1,10 +1,17 @@
-# Engineering AI Playbook
+# AI-Assisted SDLC Playbook
 
-A **public, tool-agnostic SDLC flow** and reusable execution guide for our engineering team. Designed to improve verified work delivered per AI interaction—not to promote a specific vendor.
+A **public, tool-agnostic AI-assisted software development lifecycle (SDLC)** playbook for engineering teams. Nine stages from vague requirements to verified release—copyable prompts, exit gates, review-markdown before tickets, and second-AI critique—built to improve **verified work per AI interaction**, not to promote a vendor.
+
+**Live site:** [https://smg99.github.io/engineering-ai-playbook/](https://smg99.github.io/engineering-ai-playbook/)  
+**Also known as:** Engineering AI Playbook (former name). Repository path unchanged.
+
+## What this is (quick answer)
+
+An **AI-assisted SDLC playbook** is a reusable team method for using approved AI tools across clarify → epic → design → stories → develop → verify → QA → release, with human gates and evidence—not autopilot ticket or code creation.
 
 ## Start here
 
-1. Visit **[Engineering AI Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required to read the guide.
+1. Visit the **[AI-Assisted SDLC Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required to read the guide.
 2. New to the workflow? Choose **First story** for a fictional worked example, filled prompts and a verification checklist. Finish there and jump straight into **Develop one story**.
 3. In **SDLC flow**, choose vague requirements, an existing epic, or an epic with stories. Or select any of the nine stages directly. Read inputs, expected outputs and exit checks; copy the current stage’s prompt into an approved tool and replace its placeholders.
 4. For a new vague requirement, use the **visible review-markdown panel** on SDLC home: copy the generate prompt, then the second-AI critique prompt. Review privately, adapt feedback, then create tickets only for the approved set.
@@ -12,6 +19,12 @@ A **public, tool-agnostic SDLC flow** and reusable execution guide for our engin
 6. Verify results with actual code, tests and diffs, then follow your team’s review process. The site does not run AI, inspect code or update tickets.
 
 For offline use, clone this repository and open [index.html](index.html) in a browser.
+
+## Discoverability for humans and AI
+
+- Site: [index.html](https://smg99.github.io/engineering-ai-playbook/)
+- AI context: [llm.txt](https://smg99.github.io/engineering-ai-playbook/llm.txt) · [llms.txt](https://smg99.github.io/engineering-ai-playbook/llms.txt) · [llms-full.txt](https://smg99.github.io/engineering-ai-playbook/llms-full.txt)
+- Crawlers: [robots.txt](https://smg99.github.io/engineering-ai-playbook/robots.txt) · [sitemap.xml](https://smg99.github.io/engineering-ai-playbook/sitemap.xml)
 
 ## Team guides
 
@@ -39,8 +52,6 @@ Verify all three starting points, nine-stage navigation and direct links, one-st
 ## Hosting
 
 GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this static app without Jekyll processing. Changes pushed to `main` are published automatically. SDLC flow, First story and Guides are focused views within one app; navigation never opens a separate documentation window. The first-story view shows one step at a time. Team guides are embedded as expandable sections. Markdown sources remain available in this repository for contributors.
-
-GitHub Pages is the preferred no-cost option for this public static guide: no separate hosting account, framework or build configuration is needed. Vercel can host static sites and connect private repositories, but adds another service; its free Hobby plan is limited to personal, non-commercial use. Reassess hosting if server-side features or authenticated access become requirements.
 
 ## Design
 

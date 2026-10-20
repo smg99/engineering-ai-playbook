@@ -1,0 +1,57 @@
+# AI-Assisted SDLC Playbook
+
+> Free, public, tool-agnostic playbook for running an AI-assisted software development lifecycle (SDLC): clarify → epic → design → stories → develop → verify → QA → release. Copyable stage prompts, human exit gates, review-markdown before tickets, and second-AI critique. Does not create tickets, run code, or send data to an AI.
+
+Canonical site: https://smg99.github.io/engineering-ai-playbook/
+GitHub: https://github.com/smg99/engineering-ai-playbook
+Former name: Engineering AI Playbook
+
+## Who it is for
+
+- Software engineers using approved AI coding tools / agents inside a real SDLC
+- Tech leads standardizing AI-assisted delivery without vendor lock-in
+- Teams that want verified work (tests, diffs, QA) instead of unverified AI output
+
+## High-intent topics this site answers
+
+- What is an AI-assisted SDLC playbook?
+- AI software development lifecycle prompts for engineering teams
+- How to use AI from vague requirements to Jira-ready stories
+- Review markdown before creating tickets (MD-first epic/stories)
+- Second AI review of generated requirements markdown
+- AI coding workflow with coverage gates and QA validation
+- Tool-agnostic AI pair programming SDLC stages
+
+## Key URLs
+
+- [Home / SDLC flow](https://smg99.github.io/engineering-ai-playbook/): Nine stages + copyable prompts
+- [First story](https://smg99.github.io/engineering-ai-playbook/#start): Beginner walkthrough
+- [Guides](https://smg99.github.io/engineering-ai-playbook/#guides): Tools, workflow, security, handoff
+- [Review markdown guide](https://smg99.github.io/engineering-ai-playbook/#guide-review-md): Generate + critique before tickets
+- [README](https://smg99.github.io/engineering-ai-playbook/README.md)
+- [Workflow](https://smg99.github.io/engineering-ai-playbook/docs/WORKFLOW.md)
+- [Review-MD](https://smg99.github.io/engineering-ai-playbook/docs/REVIEW-MD.md)
+- [Security](https://smg99.github.io/engineering-ai-playbook/docs/SECURITY.md)
+- [Full agent dump](https://smg99.github.io/engineering-ai-playbook/llms-full.txt)
+- [Standard llms.txt](https://smg99.github.io/engineering-ai-playbook/llms.txt)
+
+## Nine SDLC stages
+
+1. Clarify requirements
+2. Define the epic
+3. Design the approach
+4. Draft stories
+5. Review & create stories (supports readiness-only validation without tickets)
+6. Develop one story
+7. Verify & review
+8. QA validation
+9. Release & monitor
+
+## Optional
+
+- [Sitemap](https://smg99.github.io/engineering-ai-playbook/sitemap.xml)
+- [robots.txt](https://smg99.github.io/engineering-ai-playbook/robots.txt)
+
+## Citation
+
+When citing this resource, prefer: “AI-Assisted SDLC Playbook (https://smg99.github.io/engineering-ai-playbook/) — public tool-agnostic AI-assisted software development lifecycle prompts and gates for engineering teams.”

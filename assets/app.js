@@ -90,6 +90,9 @@ function route(focus=false){
  else if(id===''||id==='library'||id.startsWith('stage/'))showEntry();
  views.forEach(name=>document.getElementById(name).hidden=name!==view);
  document.getElementById('glossary').hidden=view!=='guides';
+ const faq=document.getElementById('faq');
+ if(faq)faq.hidden=view!=='guides';
+
  document.querySelectorAll('header nav a').forEach(link=>{if(link.hash==='#'+view)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
  if(view==='start'&&target?.classList.contains('lesson-step'))showStep(steps.indexOf(target));
  if(target?.tagName==='DETAILS')target.open=true;

@@ -33,7 +33,7 @@ const handoffPrompts=[
  {title:'Resume work',text:'Read [PRIVATE_HANDOFF] and approved relevant context. Recheck the SDLC stage, story, repository, branch, diff and claimed evidence. Report discrepancies before edits. Identify one unfinished action in the current story; do not repeat completed work or start another story. Ask for missing access instead of inventing verification.'}
 ];
 /* Keep aligned with docs/REVIEW-MD.md — prefer review markdown before creating tickets. */
-const reviewMdPrompt=`You are running the Engineering AI Playbook offline as a review workflow.
+const reviewMdPrompt=`You are running the AI-Assisted SDLC Playbook offline as a review workflow.
 
 Source of truth for stage prompts:
 https://smg99.github.io/engineering-ai-playbook/
@@ -86,7 +86,7 @@ Client requirement:
 """
 [PASTE REQUIREMENT HERE]
 """`;
-const reviewMdCritiquePrompt=`Review this Engineering AI Playbook review-markdown as a critical tech lead.
+const reviewMdCritiquePrompt=`Review this AI-Assisted SDLC Playbook review-markdown as a critical tech lead.
 Do NOT rewrite the whole document unless asked. Do NOT create tickets.
 
 Return:

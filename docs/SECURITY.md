@@ -1,6 +1,6 @@
 # Protect client information
 
-This repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.
+The AI-Assisted SDLC Playbook repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.
 
 ## Where should I put my real context?
 

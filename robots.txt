@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smg99.github.io/engineering-ai-playbook/sitemap.xml
+
+# AI / agent context files (explicitly crawlable)
+Allow: /llm.txt
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /README.md
+Allow: /docs/

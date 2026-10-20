@@ -27,7 +27,7 @@ On the SDLC home view, the generate prompt and a second-pass review prompt are v
 Copy from the SDLC home panel, or use:
 
 ```text
-You are running the Engineering AI Playbook offline as a review workflow.
+You are running the AI-Assisted SDLC Playbook offline as a review workflow.
 
 Source of truth for stage prompts:
 https://smg99.github.io/engineering-ai-playbook/
@@ -87,7 +87,7 @@ Client requirement:
 After the markdown exists, paste it into a different approved model or a fresh session:
 
 ```text
-Review this Engineering AI Playbook review-markdown as a critical tech lead.
+Review this AI-Assisted SDLC Playbook review-markdown as a critical tech lead.
 Do NOT rewrite the whole document unless asked. Do NOT create tickets.
 
 Return:
