@@ -32,3 +32,47 @@ const handoffPrompts=[
  {title:'Pause work',text:'Inspect current work and prepare a private factual handoff: current SDLC stage, epic/story ID, approved scope, branch and verified commit, completed changes, remaining AC, actual test and coverage results, uncommitted files, blockers and one next action. Do not edit code. Keep it concise and store only where client policy permits.'},
  {title:'Resume work',text:'Read [PRIVATE_HANDOFF] and approved relevant context. Recheck the SDLC stage, story, repository, branch, diff and claimed evidence. Report discrepancies before edits. Identify one unfinished action in the current story; do not repeat completed work or start another story. Ask for missing access instead of inventing verification.'}
 ];
+/* Keep aligned with docs/REVIEW-MD.md — prefer review markdown before creating tickets. */
+const reviewMdPrompt=`You are running the Engineering AI Playbook offline as a review workflow.
+
+Source of truth for stage prompts:
+https://smg99.github.io/engineering-ai-playbook/
+(or local engineering-ai-playbook/assets/flow-data.js)
+
+Goal:
+Produce ONE markdown file for human review. Do NOT create tickets.
+Do NOT invent ticket IDs or claim approval.
+
+Process — run these stages in order using the EXACT playbook prompt text for each:
+1) Clarify requirements
+2) Define the epic
+3) Design the approach
+4) Draft stories
+
+Markdown must include:
+- The client requirement enclosed verbatim in a fenced code block
+- For each stage: the exact playbook prompt used, then your output
+- Clear labels: Known facts / Assumptions / Unknowns / Proposals / DRAFT
+- Blocking questions for the owner (P0/P1/P2)
+- One draft epic
+- User stories with: summary, need/value, scope/exclusions, dependencies,
+  numbered Given/When/Then AC, negative/boundary cases, QA mapped to AC,
+  test requirements, definition of done, and the playbook coverage policy
+- If timeline conflicts with scope: propose an MVP cut vs stretch
+- A short "Playbook feedback" section: what worked / what to improve
+
+Rules from the playbook:
+- Separate facts from assumptions; do not invent answers
+- If blocked, continue with a provisional brief labeled as assumptions
+- Prefer existing system patterns; call out false-friend modules if found
+- Keep real client context out of the public playbook repo
+- No code changes unless I explicitly ask
+
+Optional context (only if provided):
+- Target repos/paths: …
+- Team conventions: …
+
+Client requirement:
+"""
+[PASTE REQUIREMENT HERE]
+"""`;

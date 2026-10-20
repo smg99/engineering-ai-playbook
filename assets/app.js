@@ -52,6 +52,8 @@ stageDetail.addEventListener('change',event=>{if(event.target.id==='stage-action
 const handoffSelect=document.getElementById('handoff-select');
 function renderHandoff(){document.getElementById('handoff-text').textContent=handoffPrompts[Number(handoffSelect.value)].text+'\n\n'+boundary;}
 handoffSelect.addEventListener('change',renderHandoff);renderHandoff();
+const reviewMdText=document.getElementById('review-md-text');
+if(reviewMdText&&typeof reviewMdPrompt==='string')reviewMdText.textContent=reviewMdPrompt;
 const steps=[...document.querySelectorAll('.lesson-step')];
 const lessonNav=document.getElementById('lesson-nav');
 lessonNav.innerHTML=steps.map((item,index)=>`<button data-step="${index}" aria-label="Step ${index+1}: ${escapeHTML(item.querySelector('h3').textContent.replace(/^\d+\. /,''))}">${index+1}</button>`).join('');

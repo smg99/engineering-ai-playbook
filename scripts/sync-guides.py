@@ -8,6 +8,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 GUIDES = [
     ('tools', 'TOOLS.md'),
+    ('review-md', 'REVIEW-MD.md'),
     ('security', 'SECURITY.md'),
     ('workflow', 'WORKFLOW.md'),
     ('handoff', 'QUOTA-AND-HANDOFF.md'),

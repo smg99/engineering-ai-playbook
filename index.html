@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="A practical guide to your first AI-assisted engineering task, with copyable prompts, worked examples and team guides.">
 <title>Engineering AI Playbook</title>
-<link rel="stylesheet" href="assets/styles.css?v=sdlc3">
+<link rel="stylesheet" href="assets/styles.css?v=sdlc4">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -15,7 +15,7 @@
 
 <section id="start" class="section" aria-labelledby="start-title">
 <h1 id="start-title">Your first story</h1>
-<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to the SDLC flow</a> or jump to <a href="#stage/develop">Develop one story</a>.</p>
+<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to the SDLC flow</a>, jump to <a href="#stage/develop">Develop one story</a>, or <a href="#guide-review-md">generate a review markdown before tickets</a>.</p>
 
 <nav id="lesson-nav" aria-label="Story steps"></nav><p id="lesson-status" class="helper" role="status"></p>
 <article class="lesson-step" id="first-setup"><h3>1. Choose where to work</h3><div>
@@ -86,7 +86,8 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 </div>
 <div id="stage-picker"><label for="stage-select">Or choose your current stage</label><select id="stage-select"><option value="">Choose a stage…</option></select></div>
 <div id="stage-workspace" class="stage-workspace" hidden><nav id="stage-list" aria-label="SDLC stages"></nav><article id="stage-detail"></article></div>
-<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. <a href="#start">New to AI-assisted work?</a></p>
+<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. Prefer a <a href="#review-md-tools">review markdown before tickets</a>. <a href="#start">New to AI-assisted work?</a></p>
+<details id="review-md-tools"><summary>Prefer a review markdown before tickets?</summary><div><p class="helper">Paste into an approved AI tool with your requirement. Store the result privately. Read the <a href="#guide-review-md">full guide</a>.</p><pre id="review-md-text" class="prompt"></pre><button class="copy" data-copy-source="review-md-text">Copy review-markdown prompt</button></div></details>
 <details id="handoff-tools"><summary>Need to pause or resume work?</summary><div><label for="handoff-select">Handoff action</label><select id="handoff-select"><option value="0">Pause work</option><option value="1">Resume work</option></select><pre id="handoff-text" class="prompt"></pre><button class="copy" data-copy-source="handoff-text">Copy handoff prompt</button></div></details>
 <noscript>Enable JavaScript to choose stages and copy prompts. The worked example and guides remain readable on this page.</noscript>
 </section>
@@ -112,6 +113,77 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <h3>Optional integrations</h3>
 <p>MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to your ticket system or code host is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.</p>
 </div></details>
+<details id="guide-review-md"><summary>Generate a review markdown before tickets</summary><div>
+<p>Prefer a private review markdown over creating tickets immediately. Humans review the draft epic and stories, answer blocking questions, then create tickets only for the approved set.</p>
+<p>This keeps client context out of the public playbook site. Store the markdown only in an approved private location.</p>
+<h3>When to use it</h3>
+<ul>
+<li>You received vague or meeting-note requirements and need an epic plus stories to review.</li>
+<li>You want questions and assumptions visible before Jira (or any ticket system).</li>
+<li>You are practicing the SDLC stages without writing tickets yet.</li>
+</ul>
+<h3>How it works</h3>
+<ol>
+<li>Open this playbook’s SDLC stage prompts (Clarify → Epic → Design → Stories) as the source of truth.</li>
+<li>Paste the reusable prompt below into an approved AI tool.</li>
+<li>Replace the requirement block with the real approved context.</li>
+<li>Save the model’s markdown privately and review it with your lead or owner.</li>
+<li>Only after review, use Review &amp; create stories and enter tickets through approved access.</li>
+</ol>
+<p>Optional: if your lead allows, name target repos for naming and integration fit only. Do not ask the AI to modify code unless that work is explicitly in scope.</p>
+<h3>Reusable prompt</h3>
+<p>Copy from **Prefer a review markdown before tickets?** on the SDLC flow page, or use this text:</p>
+<pre class="prompt">You are running the Engineering AI Playbook offline as a review workflow.
+
+Source of truth for stage prompts:
+https://smg99.github.io/engineering-ai-playbook/
+(or local engineering-ai-playbook/assets/flow-data.js)
+
+Goal:
+Produce ONE markdown file for human review. Do NOT create tickets.
+Do NOT invent ticket IDs or claim approval.
+
+Process — run these stages in order using the EXACT playbook prompt text for each:
+1) Clarify requirements
+2) Define the epic
+3) Design the approach
+4) Draft stories
+
+Markdown must include:
+- The client requirement enclosed verbatim in a fenced code block
+- For each stage: the exact playbook prompt used, then your output
+- Clear labels: Known facts / Assumptions / Unknowns / Proposals / DRAFT
+- Blocking questions for the owner (P0/P1/P2)
+- One draft epic
+- User stories with: summary, need/value, scope/exclusions, dependencies,
+  numbered Given/When/Then AC, negative/boundary cases, QA mapped to AC,
+  test requirements, definition of done, and the playbook coverage policy
+- If timeline conflicts with scope: propose an MVP cut vs stretch
+- A short &quot;Playbook feedback&quot; section: what worked / what to improve
+
+Rules from the playbook:
+- Separate facts from assumptions; do not invent answers
+- If blocked, continue with a provisional brief labeled as assumptions
+- Prefer existing system patterns; call out false-friend modules if found
+- Keep real client context out of the public playbook repo
+- No code changes unless I explicitly ask
+
+Optional context (only if provided):
+- Target repos/paths: …
+- Team conventions: …
+
+Client requirement:
+&quot;&quot;&quot;
+[PASTE REQUIREMENT HERE]
+&quot;&quot;&quot;</pre>
+<h3>After the markdown exists</h3>
+<ul>
+<li>Answer P0 questions or explicitly accept assumptions.</li>
+<li>Cut stretch stories if the timeline cannot hold them.</li>
+<li>Create tickets only for the approved epic and stories.</li>
+<li>Keep using Develop one story for implementation; the markdown is planning evidence, not completion proof.</li>
+</ul>
+</div></details>
 <details id="guide-security"><summary>Protect client information</summary><div>
 <p>This repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.</p>
 <h3>Where should I put my real context?</h3>
@@ -124,6 +196,7 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 </div></details>
 <details id="guide-workflow"><summary>From vague requirement to verified release</summary><div>
 <p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.</p>
+<p>For a new vague requirement, prefer generating a private review markdown (clarify → epic → design → stories) and human-reviewing it before creating tickets. Use “Prefer a review markdown before tickets?” on the SDLC flow page, or the Generate a review markdown before tickets guide.</p>
 <h3>Follow the nine stages</h3>
 <ol>
 <li>Clarify requirements: separate facts from assumptions, identify users and outcomes, surface relevant non-functional needs, and resolve blocking questions with the owner.</li>
@@ -175,6 +248,7 @@ Next action: [one specific action]</pre>
 <div><dt>Story / acceptance criteria (AC)</dt><dd>A small user need and the agreed conditions that prove it is met. Ask the ticket owner when those conditions are unclear.</dd></div>
 <div><dt>Epic</dt><dd>A larger goal delivered through several stories. Most beginners can start with their assigned story.</dd></div>
 <div><dt>Design note</dt><dd>A lightweight agreed approach covering touchpoints, contracts, NFRs and risks before stories are split.</dd></div>
+<div><dt>Review markdown</dt><dd>A private draft that runs clarify → epic → design → stories for human review before anyone creates tickets.</dd></div>
 <div><dt>Ticket system / code host</dt><dd>Where work items live (for example Jira, Linear or GitHub Issues) and where application code, PRs and CI live (for example Bitbucket, GitHub or GitLab).</dd></div>
 <div><dt>Slice / scope</dt><dd>A slice is one independently checkable change. Scope is the boundary of what you have agreed to change.</dd></div>
 <div><dt>Repository / branch / diff</dt><dd>The project’s tracked files, a line of work within it, and the changed lines you inspect before review.</dd></div>
@@ -187,7 +261,7 @@ Next action: [one specific action]</pre>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 </main>
 <footer>Generic guidance only. Keep client work private. This site never sends context to an AI.</footer>
-<script src="assets/flow-data.js?v=sdlc3" defer></script>
-<script src="assets/app.js?v=sdlc3" defer></script>
+<script src="assets/flow-data.js?v=sdlc4" defer></script>
+<script src="assets/app.js?v=sdlc4" defer></script>
 </body>
 </html>
