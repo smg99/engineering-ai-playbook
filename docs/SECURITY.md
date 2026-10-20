@@ -1,7 +1,17 @@
-# Client confidentiality
+# Protect client information
 
-**This GitHub repository and its hosted playbook are public, generic engineering guidance.** Real issues and acceptance criteria remain in the client's Jira; code, PRs and CI evidence remain in the client's Bitbucket. No automatic data sync into this repo.
+This repository and website are public. Use fictional examples here. Real tickets, source code, screenshots, private logs, architecture, credentials and customer records must stay in policy-approved private locations. Do not put them in this repository’s issues, pull requests or commit history.
 
-Never include customer names, ticket URLs, source, screenshots, private logs, credentials, API keys, production records, architecture secrets or proprietary decisions in prompts hosted here. Only submit sensitive details to AI tools if the client and organization explicitly approve that provider and its data handling.
+## Where should I put my real context?
 
-Store temporary execution plans and STATE notes only in policy-approved private client or local locations. Sanitize examples before committing: repository history, issues, pull requests and the GitHub Pages site are publicly accessible. Do not publish client-specific development strategies here. Public hosting provides no access control for confidential material.
+Keep the work item in the team’s approved ticket system and application code in its approved repository. Use real context in an AI tool only when the client and organization explicitly permit that provider and the data being shared. Having a paid account does not establish permission.
+
+This website only displays and copies text. It does not connect to Jira, Bitbucket, your repository or an AI provider, and it has no form for submitting real ticket details. Clipboard contents are handled by your browser; you choose whether and where to paste them.
+
+## Safe practice example
+
+Practice with “a fictional task app that requires a title” rather than a real customer’s ticket, screenshots or code. Replace names and sensitive values with placeholders only when your team confirms the remaining context is safe; anonymizing a name alone may not remove proprietary information.
+
+## If you are unsure
+
+Stop and ask your lead what may be shared and where. Never paste passwords, tokens or production records into a prompt. Review proposed tool access rather than accepting it automatically. Keep project plans, test evidence and handoff notes in approved private locations. Follow your organization’s incident process if something restricted is shared accidentally.

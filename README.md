@@ -4,10 +4,11 @@ A **public, tool-agnostic prompt library** and reusable SDLC execution guide for
 
 ## Start here
 
-1. Visit **[Engineering AI Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required.
-2. Pick Epic, Story, Bug, Review, QA or Handoff; search, then click **Copy prompt**.
-3. Replace bracketed placeholders with approved, minimum-necessary context in your chosen AI tool.
-4. Verify results with actual code, tests and diffs.
+1. Visit **[Engineering AI Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required to read the guide.
+2. New to the workflow? Choose **Start your first story** for a fictional worked example, filled prompts and a verification checklist.
+3. For ongoing work, choose a workflow in **Prompts**, read what to provide and what comes next, then copy the prompt. Replace any bracketed placeholders in your approved AI tool.
+4. Read Team guides and the glossary on the same page. No separate documentation window is needed.
+5. Verify results with actual code, tests and diffs, then follow your team’s review process. The site does not run AI, inspect code or update tickets.
 
 For offline use, clone this repository and open [index.html](index.html) in a browser.
 
@@ -27,10 +28,14 @@ This repository and its GitHub Pages site are deliberately **public**. Publish o
 
 ## Maintenance
 
-No dependency installation, paid API, framework, telemetry or database. The site is a self-contained static HTML file with editable prompt examples. Add role-based prompts with synthetic examples and verify their usefulness before merging.
+No dependency installation, paid API, framework, telemetry or database. The site is a self-contained static HTML file with editable prompt examples. Add role-based prompts with synthetic examples and verify their usefulness before merging. Each prompt has usage, inputs and next-action metadata. Keep that metadata aligned when changing prompts.
+
+Edit the four guide sources in `docs/`, then run `python3 scripts/sync-guides.py` to embed their readable content into `index.html`. Commit both source and generated HTML. Run `python3 scripts/sync-guides.py --check` to detect drift. Python is needed only for maintaining guides, not for reading or serving the site.
+
+Verify the first-story walkthrough, category/search combinations, next-prompt navigation, clipboard copying and fallback, inline guide links, keyboard focus and narrow-screen layout before publishing. Personal checklist selections reset on reload; nothing is sent to a backend.
 
 ## Hosting
 
-GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this self-contained static app without Jekyll processing. Changes pushed to `main` are published automatically. Team-guide links open the Markdown documents on GitHub.
+GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this self-contained static app without Jekyll processing. Changes pushed to `main` are published automatically. Team guides are embedded in the page as accessible expandable sections. Markdown sources remain available in this repository for contributors.
 
 GitHub Pages is the preferred no-cost option for this public static guide: no separate hosting account, framework or build configuration is needed. Vercel can host static sites and connect private repositories, but adds another service; its free Hobby plan is limited to personal, non-commercial use. Reassess hosting if server-side features or authenticated access become requirements.

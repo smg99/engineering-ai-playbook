@@ -1,7 +1,21 @@
-# Bring your own approved tool
+# Choose and prepare your AI tool
 
-The playbook is deliberately vendor-neutral. Existing approved editors (Cursor, VS Code, JetBrains) and agents (Gemini CLI, OpenCode, Continue, Cursor or others) can all execute the process. Availability, free tiers, model access and vendor policies change; verify before use.
+Use the tool and model your team approves. Ask your lead before sending any real work: “Which tool may I use, what information may I share, and which project setup instructions should I follow?” This playbook does not approve a provider for your client.
 
-**Prefer existing open-source tooling:** git, ripgrep, language servers, test runners, ESLint/Prettier, Playwright and native CI. Add documentation MCP (e.g., Context7) or browser MCP (Playwright) only when useful and permitted. Bitbucket tooling belongs in the client's approved environment, not this repository.
+## Two ways to use the prompts
 
-**MCP rules:** minimize permissions; enable only what the slice needs; inspect data-sharing behavior; do not duplicate simple CLI commands with heavyweight integrations. Do not let multiple AI agents edit one worktree simultaneously.
+- Browser chat: useful for discussing approved requirements or explaining permitted snippets. Without an approved connection, it cannot inspect your local repository, verify a branch or run tests. Paste the prompt in its chat and supply only the minimum approved context it asks for.
+- Editor or coding agent: open the approved local project and use the tool’s chat. Confirm the correct workspace and branch, follow the project’s setup guide, and check that relevant files are accessible. Review proposed edits and commands before accepting them under your team’s policy.
+
+You do not need to install a new tool just for this guide. Existing approved editors or agents can use these prompts. This guide is free to read; tool subscriptions, model access and usage limits vary.
+
+## Before allowing edits
+
+1. Identify the repository and branch with your lead if you are unsure. Preserve existing work that belongs to someone else.
+2. Read the project README or contribution guide for setup and test commands. Ask for help if the environment does not run.
+3. Start with a planning prompt. Resolve questions and understand the proposed first slice before implementation.
+4. Keep file access and permissions limited to what the task needs. Do not hand over credentials or copy a whole repository into a chat just to get started.
+
+## Optional integrations
+
+MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to Jira or Bitbucket is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.
