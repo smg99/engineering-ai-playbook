@@ -22,7 +22,7 @@ Blockers and unresolved questions: [facts]
 Next action: [one specific action]
 ```
 
-Use “Prepare provider switch” to help summarize it. Then use “Resume from state” in the next approved session. The receiving tool must recheck the repository, branch, changed files and evidence before editing. If it lacks access, it should ask for minimum approved context rather than claiming verification.
+Use “Pause work” under “Need to pause or resume work?” to help summarize it. Use “Resume work” in the next approved session. The receiving tool must recheck the repository, branch, changed files and evidence before editing. If it lacks access, it should ask for minimum approved context rather than claiming verification.
 
 ## Usage limits are provider-specific
 

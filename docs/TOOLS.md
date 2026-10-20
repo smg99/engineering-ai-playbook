@@ -13,7 +13,7 @@ You do not need to install a new tool just for this guide. Existing approved edi
 
 1. Identify the repository and branch with your lead if you are unsure. Preserve existing work that belongs to someone else.
 2. Read the project README or contribution guide for setup and test commands. Ask for help if the environment does not run.
-3. Start with a planning prompt. Resolve questions and understand the proposed first slice before implementation.
+3. Choose your current SDLC stage. At development, start with “Plan this story”. Resolve questions and understand the proposed first slice before implementation.
 4. Keep file access and permissions limited to what the task needs. Do not hand over credentials or copy a whole repository into a chat just to get started.
 
 ## Optional integrations

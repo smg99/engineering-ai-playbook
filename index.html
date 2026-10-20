@@ -9,12 +9,12 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><a class="brand" href="#library">Engineering AI Playbook</a><nav aria-label="Main navigation"><a href="#library">Prompts</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
+<header><a class="brand" href="#library">Engineering AI Playbook</a><nav aria-label="Main navigation"><a href="#library">SDLC flow</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
 <main id="main">
 
 <section id="start" class="section" aria-labelledby="start-title">
 <h1 id="start-title">Your first story</h1>
-<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to prompts</a>.</p>
+<p>New to AI-assisted work? Follow six steps with a fictional task app. Already comfortable? <a href="#library">Go to the SDLC flow</a>.</p>
 
 <p class="notice">Use an approved tool and approved context. <a href="#guide-security">Check what you may share</a>.</p>
 <nav id="lesson-nav" aria-label="Story steps"></nav><p id="lesson-status" class="helper" role="status"></p>
@@ -78,15 +78,17 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <div class="lesson-controls"><button id="previous-step">Previous</button><button id="next-step" class="primary">Next step</button></div>
 </section>
 <section id="library" class="section" aria-labelledby="library-title">
-<h1 id="library-title">What are you working on?</h1>
-<p>Choose a task. Add only the context it needs. <a href="#start">New here? Try your first story.</a></p>
-
-<label for="search">Search prompts</label><input type="search" id="search" placeholder="Try: investigate, review, resume…" aria-describedby="search-help">
-<p id="search-help" class="sr-only">Search the selected workflow. Switching workflows clears the search.</p>
-<div class="toolbar" id="filters" role="group" aria-label="Workflow filters"></div>
-<p id="result-count" class="helper" role="status" aria-live="polite"></p>
-<div class="prompt-workspace"><nav id="prompt-list" aria-label="Choose a prompt"></nav><article id="prompt-detail" aria-live="polite"></article></div>
-<noscript>Enable JavaScript to browse and copy prompts. The worked example and guides remain readable on this page.</noscript>
+<div class="flow-heading"><div><h1 id="library-title">Where are you starting?</h1><p id="flow-intro">Choose what you already have. Start there, then work through one stage at a time.</p></div><button id="change-entry" hidden>Change starting point</button></div>
+<div id="entry-choices" class="entry-choices" aria-label="Starting points">
+<button data-entry="0"><strong>I have vague requirements</strong><span>Clarify the need, then define an epic.</span></button>
+<button data-entry="2"><strong>I have an epic description</strong><span>Check scope and draft Jira stories.</span></button>
+<button data-entry="4"><strong>I have an epic and Jira stories</strong><span>Check readiness and develop one story.</span></button>
+</div>
+<div id="stage-picker"><label for="stage-select">Or choose your current stage</label><select id="stage-select"><option value="">Choose a stage…</option></select></div>
+<div id="stage-workspace" class="stage-workspace" hidden><nav id="stage-list" aria-label="SDLC stages"></nav><article id="stage-detail"></article></div>
+<p class="helper flow-boundary">Replace placeholders in your approved AI tool. Keep real project context there. This site never creates Jira tickets or tracks completion. <a href="#start">New to AI-assisted work?</a></p>
+<details id="handoff-tools"><summary>Need to pause or resume work?</summary><div><label for="handoff-select">Handoff action</label><select id="handoff-select"><option value="0">Pause work</option><option value="1">Resume work</option></select><pre id="handoff-text" class="prompt"></pre><button class="copy" data-copy-source="handoff-text">Copy handoff prompt</button></div></details>
+<noscript>Enable JavaScript to choose stages and copy prompts. The worked example and guides remain readable on this page.</noscript>
 </section>
 <section id="guides" class="section" aria-labelledby="guides-title">
 <h1 id="guides-title">A little guidance, when you need it</h1>
@@ -104,7 +106,7 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <ol>
 <li>Identify the repository and branch with your lead if you are unsure. Preserve existing work that belongs to someone else.</li>
 <li>Read the project README or contribution guide for setup and test commands. Ask for help if the environment does not run.</li>
-<li>Start with a planning prompt. Resolve questions and understand the proposed first slice before implementation.</li>
+<li>Choose your current SDLC stage. At development, start with “Plan this story”. Resolve questions and understand the proposed first slice before implementation.</li>
 <li>Keep file access and permissions limited to what the task needs. Do not hand over credentials or copy a whole repository into a chat just to get started.</li>
 </ol>
 <h3>Optional integrations</h3>
@@ -120,30 +122,31 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <h3>If you are unsure</h3>
 <p>Stop and ask your lead what may be shared and where. Never paste passwords, tokens or production records into a prompt. Review proposed tool access rather than accepting it automatically. Keep project plans, test evidence and handoff notes in approved private locations. Follow your organization’s incident process if something restricted is shared accidentally.</p>
 </div></details>
-<details id="guide-workflow"><summary>From ticket to reviewed change</summary><div>
-<p>Start with your assigned story or bug. You do not need to plan an entire epic first. Use the worked example under “Start here” if this is your first task.</p>
-<h3>Follow this order</h3>
+<details id="guide-workflow"><summary>From vague requirement to verified release</summary><div>
+<p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and Jira stories. Stage selection is navigation; this website does not track or approve real work.</p>
+<h3>Follow the eight stages</h3>
 <ol>
-<li>Read the approved work item. Identify the user need, acceptance criteria, exclusions and unanswered questions. Keep the real ticket in your team’s approved system.</li>
-<li>Confirm the correct project, branch and existing local changes. Read the project setup instructions. Ask your lead when access or setup is unclear.</li>
-<li>Use “Plan a story” before editing. The AI should inspect relevant code only when it has approved access; otherwise existing code patterns remain unknown.</li>
-<li>Resolve unclear requirements with the ticket owner. An AI proposal is not an approved requirement. Ask your lead to review a plan you cannot judge confidently.</li>
-<li>Choose one small change you can verify independently: a slice. Use “Execute one slice” and check the changed lines and actual results before continuing.</li>
-<li>Repeat for remaining approved slices. Check every acceptance criterion and relevant existing behavior. Passing automated checks does not prove every requirement.</li>
-<li>Use “Review a change” for additional feedback, then request your team’s required human review. Submit code and evidence through the approved code platform. Follow the team’s delivery process; an AI answer never authorizes merging or deployment.</li>
+<li>Clarify requirements: separate facts from assumptions, identify users and outcomes, and resolve blocking questions with the owner.</li>
+<li>Define the epic: agree scope, exclusions, success criteria, risks and dependencies before treating the epic as ready.</li>
+<li>Draft Jira stories: split the epic into small independently testable stories. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.</li>
+<li>Review and create stories: have the owner approve the AC and confirm the Jira project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent Jira IDs or approval.</li>
+<li>Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another.</li>
+<li>Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review.</li>
+<li>QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.</li>
+<li>Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, rollout and rollback readiness, then verify actual post-release behavior and monitoring through the existing team process.</li>
 </ol>
-<h3>If you have a bug instead</h3>
-<p>Use “Investigate a bug” with expected behavior, actual behavior, reproduction steps and permitted error evidence. Reproduce it, inspect relevant code and confirm the cause before using “Fix the root cause”. A plausible explanation without evidence is still a hypothesis.</p>
+<h3>Coverage and acceptance criteria</h3>
+<p>Each story must state 100% line, branch, function and statement coverage for new or changed application code using the project’s agreed measurement and CI gate. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.</p>
+<p>Acceptance criteria describe observable outcomes QA can test, including relevant error and boundary behavior. Coverage measures execution; it does not establish that those outcomes are correct. QA must verify them separately.</p>
 <h3>Stop and ask for help</h3>
 <ul>
 <li>Requirements conflict or expected behavior is unknown: ask the ticket owner.</li>
-<li>You cannot explain the proposed change or its checks: ask your lead or reviewer.</li>
-<li>The AI wants credentials, access beyond the task, or unapproved data: stop and check team policy.</li>
-<li>Unexpected files change or broader work is required: pause and review scope before accepting edits.</li>
-<li>Checks fail: capture the actual error privately and investigate. After two unsuccessful attempts, change the investigation approach or ask a teammate. Never report a pass you did not observe.</li>
+<li>You cannot explain the plan or its checks: ask your lead or reviewer.</li>
+<li>The AI requests credentials, broader access or unapproved data: stop and check policy.</li>
+<li>Unexpected files change or broader work is needed: review scope before accepting edits.</li>
+<li>Checks fail: keep actual error evidence privately and investigate. After two unsuccessful attempts, change strategy or ask a teammate. Never report a pass you did not observe.</li>
 </ul>
-<h3>What evidence belongs in a review?</h3>
-<p>Summarize what changed and why, the criteria covered, the commands actually run and observed results, manual behavior checked, and anything not tested or still unresolved. Real code and project evidence stay in approved private project locations, never in this public playbook.</p>
+<p>Use the pause/resume prompts to checkpoint the current stage and story in an approved private location. Real tickets, code and evidence stay in approved private project systems.</p>
 </div></details>
 <details id="guide-handoff"><summary>Advanced: save context and hand off work</summary><div>
 <p>Learn the basic story workflow first. You do not need to switch providers or monitor percentages to complete the worked example.</p>
@@ -160,7 +163,7 @@ Tests: [commands run and actual results; say not run where applicable]
 Uncommitted files: [changed paths]
 Blockers and unresolved questions: [facts]
 Next action: [one specific action]</pre>
-<p>Use “Prepare provider switch” to help summarize it. Then use “Resume from state” in the next approved session. The receiving tool must recheck the repository, branch, changed files and evidence before editing. If it lacks access, it should ask for minimum approved context rather than claiming verification.</p>
+<p>Use “Pause work” under “Need to pause or resume work?” to help summarize it. Use “Resume work” in the next approved session. The receiving tool must recheck the repository, branch, changed files and evidence before editing. If it lacks access, it should ask for minimum approved context rather than claiming verification.</p>
 <h3>Usage limits are provider-specific</h3>
 <p>Read your provider’s actual usage dashboard. Some providers do not expose a meaningful percentage, and reset windows differ. A rough optional checkpoint around 85–90% may be useful if that metric exists, but it is not a universal threshold. Pause safely when needed; switch providers only if your team approves both the destination and the context transfer. A free agent may still use a paid model. Never assume price or data handling from a tool’s label.</p>
 </div></details>
@@ -181,6 +184,7 @@ Next action: [one specific action]</pre>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 </main>
 <footer>Generic guidance only. Keep client work private. This site never sends context to an AI.</footer>
+<script src="assets/flow-data.js" defer></script>
 <script src="assets/app.js" defer></script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 # Engineering AI Playbook
 
-A **public, tool-agnostic prompt library** and reusable SDLC execution guide for our engineering team. Designed to improve verified work delivered per AI interaction—not to promote a specific vendor.
+A **public, tool-agnostic SDLC flow** and reusable execution guide for our engineering team. Designed to improve verified work delivered per AI interaction—not to promote a specific vendor.
 
 ## Start here
 
 1. Visit **[Engineering AI Playbook](https://smg99.github.io/engineering-ai-playbook/)**. No clone, install or account required to read the guide.
 2. New to the workflow? Choose **Start your first story** for a fictional worked example, filled prompts and a verification checklist.
-3. For ongoing work, choose a workflow in **Prompts**, read what to provide and what comes next, then copy the prompt. Replace any bracketed placeholders in your approved AI tool.
+3. In **SDLC flow**, choose vague requirements, an existing epic, or an epic with Jira stories. Or select any of the eight stages directly. Read inputs, expected outputs and exit checks; copy the current stage’s prompt into an approved tool and replace its placeholders.
 4. Read Team guides and the glossary on the same page. No separate documentation window is needed.
 5. Verify results with actual code, tests and diffs, then follow your team’s review process. The site does not run AI, inspect code or update tickets.
 
@@ -28,18 +28,24 @@ This repository and its GitHub Pages site are deliberately **public**. Publish o
 
 ## Maintenance
 
-No dependency installation, paid API, framework, telemetry or database. The site uses static HTML, CSS and JavaScript with no runtime dependencies. Add role-based prompts with synthetic examples and verify their usefulness before merging. Prompt definitions and usage metadata live in `assets/app.js`; styles live in `assets/styles.css`. Each prompt has usage, inputs and next-action metadata. Keep that metadata aligned when changing prompts.
+No dependency installation, paid API, framework, telemetry or database. The site uses static HTML, CSS and JavaScript with no runtime dependencies. Add role-based prompts with synthetic examples and verify their usefulness before merging. Stage content and prompts live in `assets/flow-data.js`; interactions live in `assets/app.js`; styles live in `assets/styles.css`. Each stage has inputs, outputs, exit checks and prompts. Keep these aligned when changing the flow.
 
 Edit the four guide sources in `docs/`, then run `python3 scripts/sync-guides.py` to embed their readable content into `index.html`. Commit both source and generated HTML. Run `python3 scripts/sync-guides.py --check` to detect drift. Python is needed only for maintaining guides, not for reading or serving the site.
 
-Verify the first-story walkthrough, category/search combinations, next-prompt navigation, clipboard copying and fallback, inline guide links, keyboard focus and narrow-screen layout before publishing. Personal checklist selections reset on reload; nothing is sent to a backend.
+Verify all three starting points, eight-stage navigation and direct links, one-story actions, QA return/next-story paths, the first-story walkthrough, exact copying, inline guides, keyboard focus and narrow-screen layout before publishing. Personal checklist selections reset on reload; nothing is sent to a backend.
 
 ## Hosting
 
-GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this static app without Jekyll processing. Changes pushed to `main` are published automatically. Prompts, First story and Guides are focused views within one app; navigation never opens a separate documentation window. The first-story view shows one step at a time. Team guides are embedded as expandable sections. Markdown sources remain available in this repository for contributors.
+GitHub Pages publishes the repository root from `main`. The `.nojekyll` file serves this static app without Jekyll processing. Changes pushed to `main` are published automatically. SDLC flow, First story and Guides are focused views within one app; navigation never opens a separate documentation window. The first-story view shows one step at a time. Team guides are embedded as expandable sections. Markdown sources remain available in this repository for contributors.
 
 GitHub Pages is the preferred no-cost option for this public static guide: no separate hosting account, framework or build configuration is needed. Vercel can host static sites and connect private repositories, but adds another service; its free Hobby plan is limited to personal, non-commercial use. Reassess hosting if server-side features or authenticated access become requirements.
 
 ## Design
 
 Light neutral surfaces and a restrained violet accent are inspired by the supplied DesignSystems.one token-generator preview. System fonts avoid external font downloads. Prompt size indicators are rough character-based token estimates, not provider billing counts. Only prompt text is copied, without the surrounding guidance. Hosting stays on GitHub Pages; there is no build pipeline or hosting migration.
+
+## Flow contract
+
+Clarify requirements → Define epic → Draft Jira stories → Review and create stories → Develop one story → Verify and review → QA validation → Release and monitor. Entry links are `#stage/clarify`, `#stage/stories` and `#stage/develop`. Every stage can be revisited. Selection is navigation, never evidence of Jira progress or approval.
+
+Story drafts include numbered QA-testable AC and a requirement for 100% line, branch, function and statement coverage on new or changed application code, with legacy baseline and measurement limitations reported separately. Missing evidence blocks a pass. The public site never creates tickets, stores project context, executes code or grants deployment authorization.

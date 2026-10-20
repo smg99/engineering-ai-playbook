@@ -1,29 +1,30 @@
-# From ticket to reviewed change
+# From vague requirement to verified release
 
-Start with your assigned story or bug. You do not need to plan an entire epic first. Use the worked example under “Start here” if this is your first task.
+Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and Jira stories. Stage selection is navigation; this website does not track or approve real work.
 
-## Follow this order
+## Follow the eight stages
 
-1. Read the approved work item. Identify the user need, acceptance criteria, exclusions and unanswered questions. Keep the real ticket in your team’s approved system.
-2. Confirm the correct project, branch and existing local changes. Read the project setup instructions. Ask your lead when access or setup is unclear.
-3. Use “Plan a story” before editing. The AI should inspect relevant code only when it has approved access; otherwise existing code patterns remain unknown.
-4. Resolve unclear requirements with the ticket owner. An AI proposal is not an approved requirement. Ask your lead to review a plan you cannot judge confidently.
-5. Choose one small change you can verify independently: a slice. Use “Execute one slice” and check the changed lines and actual results before continuing.
-6. Repeat for remaining approved slices. Check every acceptance criterion and relevant existing behavior. Passing automated checks does not prove every requirement.
-7. Use “Review a change” for additional feedback, then request your team’s required human review. Submit code and evidence through the approved code platform. Follow the team’s delivery process; an AI answer never authorizes merging or deployment.
+1. Clarify requirements: separate facts from assumptions, identify users and outcomes, and resolve blocking questions with the owner.
+2. Define the epic: agree scope, exclusions, success criteria, risks and dependencies before treating the epic as ready.
+3. Draft Jira stories: split the epic into small independently testable stories. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.
+4. Review and create stories: have the owner approve the AC and confirm the Jira project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent Jira IDs or approval.
+5. Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another.
+6. Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review.
+7. QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.
+8. Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, rollout and rollback readiness, then verify actual post-release behavior and monitoring through the existing team process.
 
-## If you have a bug instead
+## Coverage and acceptance criteria
 
-Use “Investigate a bug” with expected behavior, actual behavior, reproduction steps and permitted error evidence. Reproduce it, inspect relevant code and confirm the cause before using “Fix the root cause”. A plausible explanation without evidence is still a hypothesis.
+Each story must state 100% line, branch, function and statement coverage for new or changed application code using the project’s agreed measurement and CI gate. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.
+
+Acceptance criteria describe observable outcomes QA can test, including relevant error and boundary behavior. Coverage measures execution; it does not establish that those outcomes are correct. QA must verify them separately.
 
 ## Stop and ask for help
 
 - Requirements conflict or expected behavior is unknown: ask the ticket owner.
-- You cannot explain the proposed change or its checks: ask your lead or reviewer.
-- The AI wants credentials, access beyond the task, or unapproved data: stop and check team policy.
-- Unexpected files change or broader work is required: pause and review scope before accepting edits.
-- Checks fail: capture the actual error privately and investigate. After two unsuccessful attempts, change the investigation approach or ask a teammate. Never report a pass you did not observe.
+- You cannot explain the plan or its checks: ask your lead or reviewer.
+- The AI requests credentials, broader access or unapproved data: stop and check policy.
+- Unexpected files change or broader work is needed: review scope before accepting edits.
+- Checks fail: keep actual error evidence privately and investigate. After two unsuccessful attempts, change strategy or ask a teammate. Never report a pass you did not observe.
 
-## What evidence belongs in a review?
-
-Summarize what changed and why, the criteria covered, the commands actually run and observed results, manual behavior checked, and anything not tested or still unresolved. Real code and project evidence stay in approved private project locations, never in this public playbook.
+Use the pause/resume prompts to checkpoint the current stage and story in an approved private location. Real tickets, code and evidence stay in approved private project systems.
