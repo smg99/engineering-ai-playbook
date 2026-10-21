@@ -214,6 +214,8 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 </ol>
 <h3>Optional integrations</h3>
 <p>MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to your ticket system or code host is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.</p>
+<h3>Companion: ticket → PR agent checklist</h3>
+<p>After stories exist as real tickets, teams can install [ticket-flow](https://github.com/smg99/ticket-flow) (Cursor rules/skills + thin scripts) so agents follow a fixed path: fetch issue → branch → implement → tests → human confirm → commit/PR → optional chat notify. That repo is orchestration for development workspaces; this playbook stays the stage prompts and gates through release.</p>
 </div></details>
 <details id="guide-review-md"><summary>Generate a review markdown before tickets</summary><div>
 <p>Prefer a private review markdown over creating tickets immediately. Humans review the draft epic and stories, answer blocking questions, then create tickets only for the approved set.</p>
@@ -338,7 +340,7 @@ Document to review:
 <li>Design the approach: capture a lightweight design note—touchpoints, contracts, NFRs and risks—and get tech-lead or owner agreement before splitting work.</li>
 <li>Draft stories: split the epic into small independently testable stories for your ticket system. Every story needs numbered acceptance criteria (AC), QA scenarios, dependencies, test requirements and a definition of done.</li>
 <li>Review and create stories: have the owner approve the AC and confirm the project. Create tickets only through approved access with explicit authorization, or enter the approved drafts manually. Never invent ticket IDs or approval.</li>
-<li>Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another.</li>
+<li>Develop one story: inspect the approved repository and current changes, plan small slices, then implement and verify one slice at a time. Finish the current story before starting another. Optional: in an agentic IDE, run the companion [ticket-flow](https://github.com/smg99/ticket-flow) checklist (fetch issue → branch → implement → tests → confirm → commit/PR) against the same story—this site still owns the stage prompts and gates.</li>
 <li>Verify and review: check every AC against actual code and meaningful tests, verify coverage evidence and obtain required human review (including tech-lead review when your team requires it).</li>
 <li>QA validation: test each AC and relevant boundary, negative and regression cases in the approved environment; add a short exploratory pass. Record observed results and QA sign-off. Return failed stories to development; choose the next ready story when appropriate.</li>
 <li>Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, environment promotion, rollout and rollback readiness, then verify actual post-release smoke checks and monitoring through the existing team process.</li>

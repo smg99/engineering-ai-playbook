@@ -5,6 +5,8 @@ A **public, tool-agnostic AI-assisted software development lifecycle (SDLC)** pl
 **Live site:** [https://smg99.github.io/engineering-ai-playbook/](https://smg99.github.io/engineering-ai-playbook/)  
 **Also known as:** Engineering AI Playbook (former name). Repository path unchanged.
 
+**Companion after tickets exist:** [ticket-flow](https://github.com/smg99/ticket-flow) — optional IDE agent checklist (ticket ID → branch → implement → tests → human gates → PR). Use it with this playbook’s [Develop one story](https://smg99.github.io/engineering-ai-playbook/#stage/develop) stage; for vague requirements first, use [review markdown before tickets](https://smg99.github.io/engineering-ai-playbook/#guide-review-md).
+
 ## What this is (quick answer)
 
 An **AI-assisted SDLC playbook** is a reusable team method for using approved AI tools across clarify → epic → design → stories → develop → verify → QA → release, with human gates and evidence—not autopilot ticket or code creation.

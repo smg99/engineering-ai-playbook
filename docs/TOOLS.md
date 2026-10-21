@@ -19,3 +19,7 @@ You do not need to install a new tool just for this guide. Existing approved edi
 ## Optional integrations
 
 MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to your ticket system or code host is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.
+
+## Companion: ticket → PR agent checklist
+
+After stories exist as real tickets, teams can install [ticket-flow](https://github.com/smg99/ticket-flow) (Cursor rules/skills + thin scripts) so agents follow a fixed path: fetch issue → branch → implement → tests → human confirm → commit/PR → optional chat notify. That repo is orchestration for development workspaces; this playbook stays the stage prompts and gates through release.
