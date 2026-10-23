@@ -4,7 +4,7 @@
 
 Canonical site: https://smg99.github.io/engineering-ai-playbook/
 GitHub: https://github.com/smg99/engineering-ai-playbook
-Companion (ticket → PR agent workflow): https://github.com/smg99/ticket-flow
+Companion (ticket → PR agent workflow): https://smg99.github.io/ticket-flow/ (repo: https://github.com/smg99/ticket-flow)
 Former name: Engineering AI Playbook
 
 ## Who it is for

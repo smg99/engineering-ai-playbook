@@ -22,4 +22,4 @@ MCP means Model Context Protocol: a way to connect AI tools to systems or data. 
 
 ## Companion: ticket → PR agent checklist
 
-After stories exist as real tickets, teams can install [ticket-flow](https://github.com/smg99/ticket-flow) (Cursor rules/skills + thin scripts) so agents follow a fixed path: fetch issue → branch → implement → tests → human confirm → commit/PR → optional chat notify. That repo is orchestration for development workspaces; this playbook stays the stage prompts and gates through release.
+After stories exist as real tickets, teams can use [Ticket Flow](https://smg99.github.io/ticket-flow/) ([repo](https://github.com/smg99/ticket-flow)) — Cursor rules/skills + thin scripts — so agents follow a fixed path: fetch issue → branch → implement → tests → human confirm → commit/PR → optional chat notify. That companion is orchestration for development workspaces; this playbook stays the stage prompts and gates through release.
