@@ -12,7 +12,8 @@ The AI-Assisted SDLC Playbook is a free, public, tool-agnostic method for engine
 ## Not this
 
 - Not a vendor product or model recommendation
-- Not automatic Jira/Linear ticket creation
+- Not automatic Jira/Linear ticket creation, QA sign-off, merge or release authorization
+- Not an AI runtime: stage selection is navigation only
 - Not a substitute for client security policy or approved tool lists
 - Not permission to paste proprietary code or PHI into public chat
 
@@ -35,7 +36,7 @@ Clarify requirements → Define the epic → Design the approach → Draft stori
 
 ## Coverage policy (default wording)
 
-Meet the project’s agreed coverage gate for new or changed application code (prefer 100% line, branch, function and statement when tooling supports it). State the actual gate if it differs. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target, exclude code to inflate coverage or claim coverage without execution.
+Meet the project’s agreed coverage gate for new or changed application code. If the project has not set a gate, ask—do not invent a percentage. Prefer high-value tests for acceptance criteria, regressions and sensitive paths over metric chasing. Report the existing repository baseline separately. Document measurement limitations, approved exclusions and any waived checks explicitly. Do not silently weaken the target, exclude code to inflate coverage or claim coverage without execution. Missing tooling, failed checks, unrun tests or unmet gates are blockers, never a pass.
 
 ## Security boundary
 

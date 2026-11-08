@@ -105,7 +105,7 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header><a class="brand" href="#library">AI-Assisted SDLC Playbook</a><nav aria-label="Main navigation"><a href="#library">SDLC flow</a><a href="#start">First story</a><a href="#guides">Guides</a></nav><span class="header-note">Small prompts. Verified work.</span></header>
-<p class="site-boundary" role="note">Public guide only. Paste prompts into an <strong>approved</strong> AI tool with <strong>approved</strong> context. This site never creates tickets, runs code or sends data to an AI. <a href="#guide-security">Sharing rules</a></p>
+<p class="site-boundary" role="note">Public guide only. Paste prompts into an <strong>approved</strong> AI tool with <strong>approved</strong> context. Stage clicks are navigation—not approval, QA sign-off or deployment. This site never creates tickets, runs code or sends data to an AI. <a href="#guide-security">Sharing rules</a></p>
 <main id="main">
 
 <section id="start" class="section" aria-labelledby="start-title">
@@ -212,10 +212,34 @@ Do not edit code. Check each criterion against actual code and test evidence. Li
 <li>Choose your current SDLC stage. At development, start with “Plan this story”. Resolve questions and understand the proposed first slice before implementation.</li>
 <li>Keep file access and permissions limited to what the task needs. Do not hand over credentials or copy a whole repository into a chat just to get started.</li>
 </ol>
+<h3>Agent setup files (portable)</h3>
+<p>Use short project files so agents discover shared rules across tools. File naming alone does not guarantee execution or security enforcement—validate support for your approved tool.</p>
+<ul>
+<li>AGENTS.md: project context and instructions for compatible coding agents. Keep a short, clear entry point.</li>
+<li>Agent Skills (SKILL.md): reusable task workflows invoked when relevant. Prefer Ticket Flow’s skill for ticket → PR work after stories exist.</li>
+<li>Host-specific rules (for example Cursor rules or Claude Code project instructions): thin adapters; avoid duplicating playbook policy in every host file.</li>
+<li>MCP: optional connections to approved tools or data only when integration adds value.</li>
+<li>Inter-agent or remote-session protocols (for example A2A): monitor; do not make them mandatory for this playbook.</li>
+</ul>
+<p>No vendor-specific tool, hosted backend or subscription is required to use this playbook. Keep security rules explicit: only approved client tools and approved data handling.</p>
+<h4>Cursor (when your team approves it)</h4>
+<ol>
+<li>Open the approved local repository and confirm the correct branch.</li>
+<li>Follow project AGENTS.md or Cursor rules if present; keep them thin and point at playbook policy rather than rewriting it.</li>
+<li>For ticketed development work, use [ticket-flow](https://github.com/smg99/ticket-flow) skills or rules as the companion checklist.</li>
+<li>Copy the current stage prompt from this site; verify with local tests and diffs before treating work as done.</li>
+</ol>
+<h4>Other coding agents (when approved)</h4>
+<ol>
+<li>Open the same approved repository and branch in that agent’s workspace.</li>
+<li>Point the agent at AGENTS.md or the project’s equivalent instruction file.</li>
+<li>Paste the current stage prompt; require a recheck of branch, diff and tests before edits.</li>
+<li>Do not assume Cursor rules, MCP servers or Ticket Flow host adapters are available in that tool unless your team installed them there.</li>
+</ol>
 <h3>Optional integrations</h3>
 <p>MCP means Model Context Protocol: a way to connect AI tools to systems or data. It is not required for this workflow. Add integrations only when your team approves the access and data handling. A connection to your ticket system or code host is not automatically configured by this website. Deterministic tools such as the project’s test runner, formatter and source-control view remain the evidence for actual behavior and changes.</p>
 <h3>Companion: ticket → PR agent checklist</h3>
-<p>After stories exist as real tickets, teams can use [Ticket Flow](https://smg99.github.io/ticket-flow/) ([repo](https://github.com/smg99/ticket-flow)) — Cursor rules/skills + thin scripts — so agents follow a fixed path: fetch issue → branch → implement → tests → human confirm → commit/PR → optional chat notify. That companion is orchestration for development workspaces; this playbook stays the stage prompts and gates through release.</p>
+<p>After stories exist as real tickets, teams can use [Ticket Flow](https://smg99.github.io/ticket-flow/) ([repo](https://github.com/smg99/ticket-flow)) — host rules or skills plus thin scripts — so agents follow a fixed path: fetch issue → branch → implement → tests → human confirm → commit/PR → optional chat notify. That companion is orchestration for development workspaces; this playbook stays the stage prompts and gates through release.</p>
 </div></details>
 <details id="guide-review-md"><summary>Generate a review markdown before tickets</summary><div>
 <p>Prefer a private review markdown over creating tickets immediately. Humans review the draft epic and stories, answer blocking questions, then create tickets only for the approved set.</p>
@@ -273,7 +297,8 @@ Markdown must include:
 - Full story detail only for the proposed MVP set; label the rest as backlog themes
   (title + intent only) until expanded
 - Cite the team’s agreed coverage gate for new/changed code; if unknown, ask.
-  Do not invent a gate. Prefer 100% only when that is the team’s stated gate.
+  Do not invent a gate or percentage. Prefer high-value AC, regression and
+  sensitive-path tests over metric chasing.
 - If timeline conflicts with scope: propose an MVP cut vs stretch
 - A short &quot;Playbook feedback&quot; section: what worked / what to improve
 
@@ -332,6 +357,8 @@ Document to review:
 <details id="guide-workflow"><summary>From vague requirement to verified release</summary><div>
 <p>This is the execution guide for the **AI-Assisted SDLC Playbook**: use approved AI tools stage-by-stage from clarification through release, with human gates and verified evidence.</p>
 <p>Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.</p>
+<h3>What this site does not do</h3>
+<p>Selecting a stage is navigation only. It does not run AI, create or update tickets, mark QA sign-off, merge code, deploy or authorize release. Progress and approvals live in your approved private systems. Companion [ticket-flow](https://github.com/smg99/ticket-flow) owns ticket → PR execution in a development workspace; this playbook owns the SDLC stage prompts and gates through release.</p>
 <p>For a new vague requirement, use the visible review-markdown panel on the SDLC home view: generate a private markdown (clarify → epic → design → stories → readiness-only check), then ask a different approved AI to critique it. Adapt useful feedback with your owner before creating tickets. Details live in the Generate a review markdown before tickets guide.</p>
 <h3>Follow the nine stages</h3>
 <ol>
@@ -346,8 +373,40 @@ Document to review:
 <li>Release and monitor: include only accepted stories in the release scope. Confirm deployment authorization, environment promotion, rollout and rollback readiness, then verify actual post-release smoke checks and monitoring through the existing team process.</li>
 </ol>
 <h3>Coverage and acceptance criteria</h3>
-<p>Each story must state the project’s agreed coverage gate for new or changed application code (prefer 100% line, branch, function and statement when tooling supports it). State the actual gate if it differs. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.</p>
+<p>Each story must state the project’s agreed coverage gate for new or changed application code. If the project has not set a gate, ask—do not invent a percentage. Prefer high-value tests for acceptance criteria, regressions and sensitive paths over metric chasing. Report the existing repository baseline separately. Document measurement limitations, approved exclusions and any waived checks explicitly; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, failed checks, unrun tests or unmet gates are blockers, never evidence of a pass.</p>
 <p>Acceptance criteria describe observable outcomes QA can test, including relevant error and boundary behavior. Coverage measures execution; it does not establish that those outcomes are correct. QA must verify them separately.</p>
+<h3>Completion states and evidence</h3>
+<p>Playbook stages are methodology. The client’s ticket system (for example Jira, Linear or GitHub Issues) and code host remain authoritative for status. Do not treat every state below as mandatory for every client.</p>
+<p>Shared vocabulary when coordinating with Ticket Flow or similar companions:</p>
+<p>draft → approved → in_development → awaiting_review → review_accepted → qa_pending → qa_accepted → released</p>
+<p>Minimum expectations:</p>
+<ul>
+<li>Opening a PR is not Done, QA accepted or Released.</li>
+<li>Each stage needs minimum actual evidence and a named human authority for approval.</li>
+<li>Link to Ticket Flow for workspace execution and closeout evidence; do not duplicate its scripts in this repository.</li>
+<li>Public examples here use synthetic data only.</li>
+</ul>
+<h3>QA result template</h3>
+<p>Copy for a single story. AI-generated review commentary is not a substitute for test execution or human QA approval. Failures and missing evidence cannot be recorded as pass.</p>
+<pre class="prompt">Story: [STORY_ID]
+AC: [AC-ID] — [short description]
+Check: [test or scenario name]
+Outcome: pass | fail | blocked | not_run
+Evidence: [command, log pointer or observation; say none if not run]
+Approver: [name or role] — [pending | granted]
+Check decision: [continue checks | return AC to development | blocked]
+Story QA status: [in progress | accepted | rejected] — only accepted when every required AC passed
+Notes: [facts only]</pre>
+<p>Synthetic example:</p>
+<pre class="prompt">Story: TASK-42
+AC: AC-1 — Reject empty title
+Check: Save with blank title in staging
+Outcome: pass
+Evidence: Observed validation error &quot;Title is required&quot;
+Approver: QA reviewer — granted
+Check decision: continue checks
+Story QA status: in progress
+Notes: Synthetic demo only; other ACs still pending</pre>
 <h3>Stop and ask for help</h3>
 <ul>
 <li>Requirements conflict or expected behavior is unknown: ask the ticket owner.</li>
@@ -363,17 +422,26 @@ Document to review:
 <h3>Keep each request focused</h3>
 <p>Give the AI the current objective, approved acceptance criteria, relevant file paths, constraints and actual error evidence. Avoid pasting entire chat histories or repositories. Use the project’s compiler, tests, formatter and source-control tools for checks rather than asking the AI to guess their results. Shorter prompts are useful only if they preserve the context needed for correct work; this guide does not guarantee token savings.</p>
 <h3>When work must pause</h3>
-<p>Finish at a safe point, inspect the current changes, and record what is actually known. Store the following STATE note only in a policy-approved private location. STATE is simply a factual continuation note, not a special tool or public file requirement.</p>
+<p>Finish at a safe point, inspect the current changes, and record what is actually known. Store the following STATE note only in a policy-approved private location. STATE is simply a factual continuation note, not a special tool or public file requirement. Keep it human-readable; optional structured fields may align with the playbook’s completion-state vocabulary in the workflow guide. No whole-chat export or cloud memory provider is required.</p>
 <pre class="prompt">Work item: [approved private ID]
+SDLC stage: [current stage]
+Approved scope: [AC or slice boundaries still in force]
+Repository / base branch: [repo and base]
 Branch: [current branch]
+PR: [URL or none]
 Last verified commit: [actual commit identifier]
+Evidence as of: [test timestamp or commit association]
 Completed: [verified changes]
 Current: [one unfinished slice]
-Tests: [commands run and actual results; say not run where applicable]
+Tests: [commands run and actual results; say not run or waived where applicable]
+Coverage: [measured result vs project gate, or not measured]
+Approvals: [granted or pending — who]
+Verified facts: [only what was rechecked]
+Outstanding questions: [open items]
+Blockers: [facts that stop progress, or none]
 Uncommitted files: [changed paths]
-Blockers and unresolved questions: [facts]
 Next action: [one specific action]</pre>
-<p>Use “Pause work” under “Need to pause or resume work?” to help summarize it. Use “Resume work” in the next approved session. The receiving tool must recheck the repository, branch, changed files and evidence before editing. If it lacks access, it should ask for minimum approved context rather than claiming verification.</p>
+<p>Use “Pause work” under “Need to pause or resume work?” to help summarize it. Use “Resume work” in the next approved session. The receiving agent must inspect the actual repository, branch, diff, status, test evidence and approved scope before trusting any carried-forward claim. Distinguish verified facts, outstanding questions and planned actions. If it lacks access, it should ask for minimum approved context rather than claiming verification. The same STATE note works when switching to a different approved AI provider.</p>
 <h3>Usage limits are provider-specific</h3>
 <p>Read your provider’s actual usage dashboard. Some providers do not expose a meaningful percentage, and reset windows differ. A rough optional checkpoint around 85–90% may be useful if that metric exists, but it is not a universal threshold. Pause safely when needed; switch providers only if your team approves both the destination and the context transfer. A free agent may still use a paid model. Never assume price or data handling from a tool’s label.</p>
 </div></details>

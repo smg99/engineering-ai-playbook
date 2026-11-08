@@ -49,6 +49,11 @@ def render_markdown(source):
             continue
         if line.startswith('# '):
             continue  # The guide's title is its disclosure summary.
+        if line.startswith('### '):
+            flush_paragraph()
+            close_list()
+            result.append('<h4>' + html.escape(line[4:]) + '</h4>')
+            continue
         if line.startswith('## '):
             flush_paragraph()
             close_list()

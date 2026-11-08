@@ -61,7 +61,8 @@ Markdown must include:
 - Full story detail only for the proposed MVP set; label the rest as backlog themes
   (title + intent only) until expanded
 - Cite the team’s agreed coverage gate for new/changed code; if unknown, ask.
-  Do not invent a gate. Prefer 100% only when that is the team’s stated gate.
+  Do not invent a gate or percentage. Prefer high-value AC, regression and
+  sensitive-path tests over metric chasing.
 - If timeline conflicts with scope: propose an MVP cut vs stretch
 - A short "Playbook feedback" section: what worked / what to improve
 

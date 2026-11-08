@@ -4,6 +4,10 @@ This is the execution guide for the **AI-Assisted SDLC Playbook**: use approved 
 
 Choose where your work is now in SDLC flow. You can start with vague requirements, an existing epic, or an epic and stories. Stage selection is navigation; this website does not track or approve real work.
 
+## What this site does not do
+
+Selecting a stage is navigation only. It does not run AI, create or update tickets, mark QA sign-off, merge code, deploy or authorize release. Progress and approvals live in your approved private systems. Companion [ticket-flow](https://github.com/smg99/ticket-flow) owns ticket → PR execution in a development workspace; this playbook owns the SDLC stage prompts and gates through release.
+
 For a new vague requirement, use the visible review-markdown panel on the SDLC home view: generate a private markdown (clarify → epic → design → stories → readiness-only check), then ask a different approved AI to critique it. Adapt useful feedback with your owner before creating tickets. Details live in the Generate a review markdown before tickets guide.
 
 ## Follow the nine stages
@@ -20,9 +24,54 @@ For a new vague requirement, use the visible review-markdown panel on the SDLC h
 
 ## Coverage and acceptance criteria
 
-Each story must state the project’s agreed coverage gate for new or changed application code (prefer 100% line, branch, function and statement when tooling supports it). State the actual gate if it differs. Report the existing repository baseline separately. Document measurement limitations and approved exclusions; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, unrun tests or unverified coverage are blockers, never evidence of a pass.
+Each story must state the project’s agreed coverage gate for new or changed application code. If the project has not set a gate, ask—do not invent a percentage. Prefer high-value tests for acceptance criteria, regressions and sensitive paths over metric chasing. Report the existing repository baseline separately. Document measurement limitations, approved exclusions and any waived checks explicitly; do not silently weaken the target or exclude code to inflate coverage. Missing tooling, failed checks, unrun tests or unmet gates are blockers, never evidence of a pass.
 
 Acceptance criteria describe observable outcomes QA can test, including relevant error and boundary behavior. Coverage measures execution; it does not establish that those outcomes are correct. QA must verify them separately.
+
+## Completion states and evidence
+
+Playbook stages are methodology. The client’s ticket system (for example Jira, Linear or GitHub Issues) and code host remain authoritative for status. Do not treat every state below as mandatory for every client.
+
+Shared vocabulary when coordinating with Ticket Flow or similar companions:
+
+draft → approved → in_development → awaiting_review → review_accepted → qa_pending → qa_accepted → released
+
+Minimum expectations:
+
+- Opening a PR is not Done, QA accepted or Released.
+- Each stage needs minimum actual evidence and a named human authority for approval.
+- Link to Ticket Flow for workspace execution and closeout evidence; do not duplicate its scripts in this repository.
+- Public examples here use synthetic data only.
+
+## QA result template
+
+Copy for a single story. AI-generated review commentary is not a substitute for test execution or human QA approval. Failures and missing evidence cannot be recorded as pass.
+
+```text
+Story: [STORY_ID]
+AC: [AC-ID] — [short description]
+Check: [test or scenario name]
+Outcome: pass | fail | blocked | not_run
+Evidence: [command, log pointer or observation; say none if not run]
+Approver: [name or role] — [pending | granted]
+Check decision: [continue checks | return AC to development | blocked]
+Story QA status: [in progress | accepted | rejected] — only accepted when every required AC passed
+Notes: [facts only]
+```
+
+Synthetic example:
+
+```text
+Story: TASK-42
+AC: AC-1 — Reject empty title
+Check: Save with blank title in staging
+Outcome: pass
+Evidence: Observed validation error "Title is required"
+Approver: QA reviewer — granted
+Check decision: continue checks
+Story QA status: in progress
+Notes: Synthetic demo only; other ACs still pending
+```
 
 ## Stop and ask for help
 
